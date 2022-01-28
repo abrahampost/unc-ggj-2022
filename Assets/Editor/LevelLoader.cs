@@ -1,6 +1,7 @@
 using System.IO;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using System.Text;
 using System.Collections.Generic;
 
@@ -45,6 +46,7 @@ public class LevelLoader : EditorWindow
     }
 
     static void LoadLevel(LevelData level) {
+        var scene = EditorSceneManager.GetActiveScene();
         Dictionary<string, GameObject> cachedPrefabs = new Dictionary<string, GameObject>();
         foreach(LevelObject lo in level.objects) {
             var prefabName = lo.name;
@@ -59,6 +61,6 @@ public class LevelLoader : EditorWindow
             Instantiate(prefab, new Vector3(lo.x, lo.y, 0), Quaternion.identity);
         }
 
-        EditorApplication.SaveScene();
+        EditorSceneManager.SaveScene(scene);
     }
 }
