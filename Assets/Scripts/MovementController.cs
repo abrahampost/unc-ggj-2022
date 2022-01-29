@@ -149,11 +149,26 @@ public class MovementController : MonoBehaviour
 
     void CheckVectors()
     {
+        Dimension currentDimension = this.levelState.dimension;
+        string currentDimensionString = "";
+        if (currentDimension == Dimension.RED)
+        {
+            currentDimensionString = "Dimension0Terrain";
+        }
+        else if (currentDimension == Dimension.GREEN)
+        {
+            currentDimensionString = "Dimension1Terrain";
+        }
+        else if (currentDimension == Dimension.BLUE)
+        {
+            currentDimensionString = "Dimension1Terrain";
+        }
+
         Vector2 currentPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         RaycastHit2D downLeft = Physics2D.Raycast(currentPos + new Vector2(-.5f, -.5f), Vector2.down, .1f);
         RaycastHit2D downRight = Physics2D.Raycast(currentPos + new Vector2(.5f, -.5f), Vector2.down, .1f);
-        if ((downLeft.collider != null && downLeft.collider.CompareTag("Environment")) ||
-            (downRight.collider != null && downRight.collider.CompareTag("Environment")))
+        if ((downLeft.collider != null && downLeft.collider.CompareTag(currentDimensionString)) ||
+            (downRight.collider != null && downRight.collider.CompareTag(currentDimensionString)))
         {
             onGround = true;
         }
@@ -164,8 +179,9 @@ public class MovementController : MonoBehaviour
         RaycastHit2D rightTop = Physics2D.Raycast(currentPos + new Vector2(.5f, .5f), Vector2.right, .1f);
         RaycastHit2D right = Physics2D.Raycast(currentPos + new Vector2(.5f, 0), Vector2.right, .1f);
         RaycastHit2D rightBottom = Physics2D.Raycast(currentPos + new Vector2(.5f, -.5f), Vector2.right, .1f);
-        if ((right.collider != null && right.collider.CompareTag("Environment")) || (rightTop.collider != null && rightTop.collider.CompareTag("Environment"))
-                || (rightBottom.collider != null && rightBottom.collider.CompareTag("Environment")))
+        if ((right.collider != null && right.collider.CompareTag(currentDimensionString)) ||
+            (rightTop.collider != null && rightTop.collider.CompareTag(currentDimensionString)) ||
+            (rightBottom.collider != null && rightBottom.collider.CompareTag(currentDimensionString)))
         {
             onRightWall = true;
         }
@@ -176,8 +192,9 @@ public class MovementController : MonoBehaviour
         RaycastHit2D leftTop = Physics2D.Raycast(currentPos + new Vector2(-.5f, .5f), Vector2.left, .1f);
         RaycastHit2D left = Physics2D.Raycast(currentPos + new Vector2(-.5f, 0), Vector2.left, .1f);
         RaycastHit2D leftBottom = Physics2D.Raycast(currentPos + new Vector2(-.5f, -.5f), Vector2.left, .1f);
-        if ((left.collider != null && left.collider.CompareTag("Environment")) || (leftTop.collider != null && leftTop.collider.CompareTag("Environment")) ||
-            (leftBottom.collider != null && leftBottom.collider.CompareTag("Environment")))
+        if ((left.collider != null && left.collider.CompareTag(currentDimensionString)) ||
+            (leftTop.collider != null && leftTop.collider.CompareTag(currentDimensionString)) ||
+            (leftBottom.collider != null && leftBottom.collider.CompareTag(currentDimensionString)))
         {
             onLeftWall = true;
         }
