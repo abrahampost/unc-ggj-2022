@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
 
+    public LevelState levelState;
     public float maxHorizSpeed;
     public float horizAccel;
     public float horizDecel;
