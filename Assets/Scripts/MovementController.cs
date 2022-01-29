@@ -23,6 +23,9 @@ public class MovementController : MonoBehaviour
     private bool jumpedLeft = false;
     private bool jumpedRight = false;
 
+    // For Animations
+    public Animator animator;
+
     private Rigidbody2D _rigidbody;
     // Start is called before the first frame update
     void Start()
@@ -105,6 +108,9 @@ public class MovementController : MonoBehaviour
         }
 
         _rigidbody.velocity = vel;
+
+        animator.SetFloat("Speed", Mathf.Abs(vel.x));
+        animator.SetBool("IsJumping", !(onGround || onLeftWall || onRightWall));
     }
 
     IEnumerator DoubleJumpCooldown()
