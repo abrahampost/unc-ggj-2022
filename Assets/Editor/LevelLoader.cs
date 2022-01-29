@@ -2,27 +2,22 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.Text;
 using System.Collections.Generic;
 
 [System.Serializable]
 public struct LevelObject {
     public int x;
     public int y;
-    public string name;
+
+    public string sprite;
 }
 
+[System.Serializable]
 public class LevelData
 {
-    public LevelObject[] objects;
-
-    public override string ToString() {
-        StringBuilder sb = new StringBuilder();
-        foreach(LevelObject lo in this.objects) {
-            sb.AppendLine(string.Format("({}) - {}, {}", lo.name, lo.x, lo.y));
-        }
-        return sb.ToString();
-    }
+    public LevelObject[] red;
+    public LevelObject[] green;
+    public LevelObject[] blue;
 }
 
 public class LevelLoader : EditorWindow
@@ -38,18 +33,20 @@ public class LevelLoader : EditorWindow
             LevelData level = JsonUtility.FromJson<LevelData>(textContent);
             if (level != null) {
                 Debug.Log("Successfully read level");
-                LoadLevel(level);
+                LoadDimension(level.red, "Red");
+                LoadDimension(level.green, "Green");
+                LoadDimension(level.blue, "Blue");
             } else {
                 Debug.LogError("Unsuccessfully read level");
             }
         }
     }
 
-    static void LoadLevel(LevelData level) {
+    static void LoadDimension(LevelObject[] dimension, string dimensionName) {
         var scene = EditorSceneManager.GetActiveScene();
         Dictionary<string, GameObject> cachedPrefabs = new Dictionary<string, GameObject>();
-        foreach(LevelObject lo in level.objects) {
-            var prefabName = lo.name;
+        foreach(LevelObject lo in dimension) {
+            var prefabName = lo.sprite;
             cachedPrefabs.TryGetValue(prefabName, out GameObject prefab);
             if (prefab == null) {
                 prefab = Resources.Load<GameObject>("Prefabs/" + prefabName);
@@ -58,7 +55,8 @@ public class LevelLoader : EditorWindow
                 }
                 cachedPrefabs.Add(prefabName, prefab);
             }
-            Instantiate(prefab, new Vector3(lo.x, lo.y, 0), Quaternion.identity);
+            var item = Instantiate(prefab, new Vector3(lo.x, lo.y, 0), Quaternion.identity);
+            item.tag = "Dimension" + dimensionName + "Terrain";
         }
 
         EditorSceneManager.SaveScene(scene);
