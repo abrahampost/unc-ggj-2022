@@ -33,4 +33,9 @@ public class Telegun : Ability
     {
         return inUse;
     }
+
+    public override void notUsing()
+    {
+
+    }
 }

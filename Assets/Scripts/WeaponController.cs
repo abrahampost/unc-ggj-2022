@@ -16,29 +16,41 @@ public class WeaponController : MonoBehaviour
         {
             if (levelState.dimension == Dimension.RED)
             {
-                redPrimary.use();
+                if (redPrimary) redPrimary.use();
             }
             else if (levelState.dimension == Dimension.GREEN)
             {
-                greenPrimary.use();
+                if (greenPrimary) greenPrimary.use();
             } else if (levelState.dimension == Dimension.BLUE)
             {
-                bluePrimary.use();
+                if (bluePrimary) bluePrimary.use();
             }
         }
-        if (Input.GetMouseButtonDown(1))
+        else
+        {
+            if (redPrimary) redPrimary.notUsing();
+            if (greenPrimary) greenPrimary.notUsing();
+            if (bluePrimary) bluePrimary.notUsing();
+        }
+        if (Input.GetMouseButton(1))
         {
             if (levelState.dimension == Dimension.RED)
             {
-                redSecondary.use();
+                if (redPrimary) redSecondary.use();
             }
             else if (levelState.dimension == Dimension.GREEN)
             {
-                greenSecondary.use();
+                if (greenSecondary) greenSecondary.use();
             } else if (levelState.dimension == Dimension.BLUE)
             {
-                blueSecondary.use();
+                if (blueSecondary) blueSecondary.use();
             }
+        }
+        else
+        {
+            if (redPrimary) redSecondary.notUsing();
+            if (greenSecondary) greenSecondary.notUsing();
+            if (blueSecondary) blueSecondary.notUsing();
         }
     }
 }
