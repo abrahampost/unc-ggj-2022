@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70db034cb913f1249aa34b147a387d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: Main Menu
+  level: 1
 --- !u!1001 &431068877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,6 +293,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8849503486471175956, guid: a561c592093ae20468264e993d8f9e7b, type: 3}
+      propertyPath: level
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8849503486471175956, guid: a561c592093ae20468264e993d8f9e7b, type: 3}
       propertyPath: levelState
       value: 
