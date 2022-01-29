@@ -221,7 +221,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70db034cb913f1249aa34b147a387d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 
 --- !u!1001 &431068877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -281,6 +282,10 @@ PrefabInstance:
       propertyPath: levelState
       value: 
       objectReference: {fileID: 1969580894}
+    - target: {fileID: 8849503486471175957, guid: a561c592093ae20468264e993d8f9e7b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8849503486471175961, guid: a561c592093ae20468264e993d8f9e7b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -344,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5134839716437087645, guid: 2101d653b91c00b4e9a90e0a7a31a3a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5134839716437087645, guid: 2101d653b91c00b4e9a90e0a7a31a3a6, type: 3}
       propertyPath: m_LocalPosition.y
