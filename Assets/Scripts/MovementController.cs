@@ -118,6 +118,7 @@ public class MovementController : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(vel.x));
         animator.SetBool("IsJumping", !(onGround || onLeftWall || onRightWall));
+        print(onGround);
     }
 
     IEnumerator DoubleJumpCooldown()
