@@ -21,6 +21,7 @@ public class PlugKnightMovement : MonoBehaviour
 
         Vector2 targetVector = (targetPosition - gameObject.GetComponent<Rigidbody2D>().position);
         Vector2 deltaVel = speed * targetVector;
+        deltaVel.y = 0;
 
         // Go toward target
         // gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(deltaVel * Time.deltaTime, maxSpeed);
