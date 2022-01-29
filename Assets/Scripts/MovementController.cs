@@ -38,6 +38,7 @@ public class MovementController : MonoBehaviour
     {
         CheckVectors();
         ResetJumps();
+        if (Input.GetKeyUp(KeyCode.F)) levelState.ChangeDimension();
         float horizAxis = Input.GetAxisRaw("Horizontal");
         bool jump = Input.GetButton("Jump");
         Vector2 vel = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
@@ -155,20 +156,7 @@ public class MovementController : MonoBehaviour
 
     void CheckVectors()
     {
-        Dimension currentDimension = this.levelState.dimension;
-        string currentDimensionString = "";
-        if (currentDimension == Dimension.RED)
-        {
-            currentDimensionString = "Dimension0Terrain";
-        }
-        else if (currentDimension == Dimension.GREEN)
-        {
-            currentDimensionString = "Dimension1Terrain";
-        }
-        else if (currentDimension == Dimension.BLUE)
-        {
-            currentDimensionString = "Dimension1Terrain";
-        }
+        string currentDimensionString = levelState.GetTerrainTag();
 
         Vector2 currentPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         RaycastHit2D downLeft = Physics2D.Raycast(currentPos + new Vector2(-.5f, -.5f), Vector2.down, .1f);
