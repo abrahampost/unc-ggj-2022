@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Environment
   - Dimension0Terrain
+  - Dimension1Terrain
+  - Dimension2Terrain
   layers:
   - Default
   - TransparentFX
