@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeeterMovement : MonoBehaviour
+public class PlugKnightMovement : MonoBehaviour
 {
     public float speed;
     public float maxSpeed;
