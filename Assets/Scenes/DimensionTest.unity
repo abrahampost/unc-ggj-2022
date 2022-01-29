@@ -282,6 +282,7 @@ MonoBehaviour:
   onGround: 1
   onRightWall: 0
   onLeftWall: 0
+  animator: {fileID: 609103018}
 --- !u!95 &609103018
 Animator:
   serializedVersion: 3
@@ -313,8 +314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38651e35da818f46989e62c2892e5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryAbility: {fileID: 4572797676429314216, guid: 4f76febf60f524c4bb0fdf843d09fb0d, type: 3}
-  secondaryAbility: {fileID: 926353132471507519, guid: 36dddde55bbba8443bea0a639a610461, type: 3}
+  levelState: {fileID: 1545671815}
+  redPrimary: {fileID: 2760251339124726197, guid: e3798abe3804add42b8cf848191a275c, type: 3}
+  redSecondary: {fileID: 1187699840208992164, guid: 36dddde55bbba8443bea0a639a610461, type: 3}
+  greenPrimary: {fileID: 0}
+  greenSecondary: {fileID: 0}
+  bluePrimary: {fileID: 0}
+  blueSecondary: {fileID: 0}
 --- !u!1 &1089006330
 GameObject:
   m_ObjectHideFlags: 0
