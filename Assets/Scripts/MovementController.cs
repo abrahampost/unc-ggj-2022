@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
@@ -195,6 +196,14 @@ public class MovementController : MonoBehaviour
         else
         {
             onLeftWall = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Goal")) {
+            Debug.Log("test");
+            print("test");
+            SceneManager.LoadScene("Main Menu");
         }
     }
 }
