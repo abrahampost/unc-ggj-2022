@@ -370,11 +370,11 @@ PrefabInstance:
     - target: {fileID: 8849503486471175958, guid: a561c592093ae20468264e993d8f9e7b, type: 3}
       propertyPath: redPrimary
       value: 
-      objectReference: {fileID: 2760251339124726197, guid: e3798abe3804add42b8cf848191a275c, type: 3}
+      objectReference: {fileID: 4572797676429314217, guid: 4f76febf60f524c4bb0fdf843d09fb0d, type: 3}
     - target: {fileID: 8849503486471175958, guid: a561c592093ae20468264e993d8f9e7b, type: 3}
       propertyPath: redSecondary
       value: 
-      objectReference: {fileID: 1187699840208992164, guid: 36dddde55bbba8443bea0a639a610461, type: 3}
+      objectReference: {fileID: 3852738921384792757, guid: 37b9ff61ba1bdba48a1cd800d69b1f52, type: 3}
     - target: {fileID: 8849503486471175961, guid: a561c592093ae20468264e993d8f9e7b, type: 3}
       propertyPath: m_Name
       value: Player

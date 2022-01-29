@@ -21,4 +21,9 @@ public class Gun : Ability  {
     {
         return true;
     }
+
+    public override void notUsing()
+    {
+        
+    }
 }

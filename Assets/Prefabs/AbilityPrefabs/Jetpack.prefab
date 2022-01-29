@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &926353132471507519
+--- !u!1 &3685173207912225666
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8327904902638401116}
-  - component: {fileID: 1187699840208992164}
+  - component: {fileID: 5522073249928917969}
+  - component: {fileID: 318256612055850679}
   m_Layer: 0
-  m_Name: Telegun
+  m_Name: Jetpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8327904902638401116
+--- !u!4 &5522073249928917969
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926353132471507519}
+  m_GameObject: {fileID: 3685173207912225666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5987527, y: -0.92345166, z: -3.244069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1187699840208992164
+--- !u!114 &318256612055850679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926353132471507519}
+  m_GameObject: {fileID: 3685173207912225666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 795f87c277e77fd4789e10419ed0f3dd, type: 3}
+  m_Script: {fileID: 11500000, guid: c5e7988dc0d325f40a1fdf1ed0de283c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6078000052071288269, guid: 12e382f88b39cb447a2cd56f66a31549, type: 3}
-  bulletSpeed: 20
-  startingDistance: 0.8
+  speed: 12
+  fuelTime: 0
+  fuelRechargeTime: 0
