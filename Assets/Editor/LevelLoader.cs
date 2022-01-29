@@ -8,12 +8,16 @@ using System.Collections.Generic;
 public struct LevelObject {
     public int x;
     public int y;
-    public string name;
+
+    public string sprite;
 }
 
+[System.Serializable]
 public class LevelData
 {
-    public LevelObject[][] dimensions;
+    public LevelObject[] red;
+    public LevelObject[] green;
+    public LevelObject[] blue;
 }
 
 public class LevelLoader : EditorWindow
@@ -29,31 +33,30 @@ public class LevelLoader : EditorWindow
             LevelData level = JsonUtility.FromJson<LevelData>(textContent);
             if (level != null) {
                 Debug.Log("Successfully read level");
-                LoadLevel(level);
+                LoadDimension(level.red, "Red");
+                LoadDimension(level.green, "Green");
+                LoadDimension(level.blue, "Blue");
             } else {
                 Debug.LogError("Unsuccessfully read level");
             }
         }
     }
 
-    static void LoadLevel(LevelData level) {
+    static void LoadDimension(LevelObject[] dimension, string dimensionName) {
         var scene = EditorSceneManager.GetActiveScene();
         Dictionary<string, GameObject> cachedPrefabs = new Dictionary<string, GameObject>();
-        for(int i = 0; i < level.dimensions.Length; i++) {
-            var dimension = level.dimensions[i];
-            foreach(LevelObject lo in dimension) {
-                var prefabName = lo.name;
-                cachedPrefabs.TryGetValue(prefabName, out GameObject prefab);
+        foreach(LevelObject lo in dimension) {
+            var prefabName = lo.sprite;
+            cachedPrefabs.TryGetValue(prefabName, out GameObject prefab);
+            if (prefab == null) {
+                prefab = Resources.Load<GameObject>("Prefabs/" + prefabName);
                 if (prefab == null) {
-                    prefab = Resources.Load<GameObject>("Prefabs/" + prefabName);
-                    if (prefab == null) {
-                        throw new System.Exception("No prefab found with name " + prefabName);
-                    }
-                    cachedPrefabs.Add(prefabName, prefab);
+                    throw new System.Exception("No prefab found with name " + prefabName);
                 }
-                var item = Instantiate(prefab, new Vector3(lo.x, lo.y, 0), Quaternion.identity);
-                item.tag = "Dimension" + i + "Terrain";
+                cachedPrefabs.Add(prefabName, prefab);
             }
+            var item = Instantiate(prefab, new Vector3(lo.x, lo.y, 0), Quaternion.identity);
+            item.tag = "Dimension" + dimensionName + "Terrain";
         }
 
         EditorSceneManager.SaveScene(scene);
