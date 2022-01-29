@@ -5,7 +5,8 @@ using UnityEngine;
 public class Jetpack : Ability
 {
 
-    public float speed;
+    public float maxSpeed;
+    public float acceleration;
     public float fuelTime;
     public float fuelRechargeRate;
     private float currentFuel;
@@ -19,14 +20,15 @@ public class Jetpack : Ability
     {
         if (currentFuel > 0)
         {
-            GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity += Vector2.up * (speed*100f) * Time.deltaTime;
+            var player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+            player.velocity = new Vector2(player.velocity.x, Mathf.Min(player.velocity.y + Time.deltaTime * (acceleration*100f), maxSpeed));
             currentFuel -= Time.deltaTime;
         }
     }
 
     public override void notUsing()
     {
-        currentFuel += Mathf.Min(Time.deltaTime * fuelRechargeRate, fuelTime);
+        currentFuel = Mathf.Min(currentFuel + Time.deltaTime * fuelRechargeRate, fuelTime);
     }
 
     public override bool canUse()

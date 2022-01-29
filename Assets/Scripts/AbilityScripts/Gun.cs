@@ -12,7 +12,7 @@ public class Gun : Ability  {
         var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         GameObject playerObject = GameObject.Find("Player");
         var normalizedDirection = new Vector2(mousePosition.x - playerObject.transform.position.x, mousePosition.y - playerObject.transform.position.y).normalized;
-        GameObject newBullet = Instantiate(bullet, new Vector2(playerObject.transform.position.x, playerObject.transform.position.y) + (normalizedDirection*startingDistance), transform.rotation);
+        GameObject newBullet = Instantiate(bullet, new Vector2(playerObject.transform.position.x, playerObject.transform.position.y) + (normalizedDirection*startingDistance), Quaternion.AngleAxis(Mathf.Atan2(normalizedDirection.y, normalizedDirection.x) * Mathf.Rad2Deg, Vector3.forward));
         newBullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletSpeed;
         Destroy (newBullet, timeAlive);
     }

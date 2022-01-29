@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e7988dc0d325f40a1fdf1ed0de283c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
-  fuelTime: 0
-  fuelRechargeTime: 0
+  maxSpeed: 8
+  acceleration: 2
+  fuelTime: 1.5
+  fuelRechargeRate: 0.8
