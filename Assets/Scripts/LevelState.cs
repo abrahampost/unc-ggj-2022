@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public enum Dimension
@@ -16,21 +15,27 @@ public class LevelState : MonoBehaviour
     public bool blueEnabled;
     public Dimension dimension = Dimension.RED;
 
+    private void Start() {
+        foreach(Dimension dim in Enum.GetValues(typeof(Dimension))) {
+            if (dim != this.dimension) RemoveTerrain(dim);
+        }
+    }
+
     public void ChangeDimension() 
     {
         Dimension nextDimension = this.GetNextDimension();
-        this.RemoveTerrain();
+        this.RemoveTerrain(this.dimension);
+        this.AddTerrain(nextDimension);
         this.dimension = nextDimension;
-        this.AddTerrain();
     }
-    public string GetTerrainTag()
+    public string GetTerrainTag(Dimension dim)
     {
         string currentDimensionString;
-        if (this.dimension == Dimension.RED)
+        if (dim == Dimension.RED)
         {
             currentDimensionString = "Dimension0Terrain";
         }
-        else if (this.dimension == Dimension.GREEN)
+        else if (dim == Dimension.GREEN)
         {
             currentDimensionString = "Dimension1Terrain";
         }
@@ -54,18 +59,18 @@ public class LevelState : MonoBehaviour
         }
     }
 
-    private void RemoveTerrain()
+    private void RemoveTerrain(Dimension dim)
     {
-        GameObject[] terrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag());
+        GameObject[] terrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(dim));
         foreach(var piece in terrain) {
             piece.GetComponent<Renderer>().enabled = false;
             piece.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
-    private void AddTerrain()
+    private void AddTerrain(Dimension dim)
     {
-        GameObject[] terrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag());
+        GameObject[] terrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(dim));
         foreach(var piece in terrain) {
             piece.GetComponent<Renderer>().enabled = true;
             piece.GetComponent<BoxCollider2D>().enabled = true;

@@ -156,7 +156,7 @@ public class MovementController : MonoBehaviour
 
     void CheckVectors()
     {
-        string currentDimensionString = levelState.GetTerrainTag();
+        string currentDimensionString = levelState.GetTerrainTag(levelState.dimension);
 
         Vector2 currentPos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
         RaycastHit2D downLeft = Physics2D.Raycast(currentPos + new Vector2(-.5f, -.5f), Vector2.down, .1f);
