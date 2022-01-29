@@ -21,11 +21,5 @@ public class NextScene : MonoBehaviour
 
 
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Goal")) {
-            Debug.Log("test");
-            print("test");
-            SceneManager.LoadScene("Main Menu");
-        }
-    }
+    
 }
