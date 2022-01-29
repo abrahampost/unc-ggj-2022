@@ -547,6 +547,10 @@ PrefabInstance:
       propertyPath: levelState
       value: 
       objectReference: {fileID: 1545671815}
+    - target: {fileID: 2102146503479206356, guid: 110f65817b3388349a0813451f83170f, type: 3}
+      propertyPath: redSecondary
+      value: 
+      objectReference: {fileID: 1187699840208992164, guid: 36dddde55bbba8443bea0a639a610461, type: 3}
     - target: {fileID: 2102146503479206358, guid: 110f65817b3388349a0813451f83170f, type: 3}
       propertyPath: levelState
       value: 
