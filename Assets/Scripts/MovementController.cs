@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
@@ -27,6 +28,11 @@ public class MovementController : MonoBehaviour
     public Animator animator;
 
     private Rigidbody2D _rigidbody;
+
+    private GameObject Goal;
+
+    private int levelToGoTo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -196,5 +202,11 @@ public class MovementController : MonoBehaviour
         {
             onLeftWall = false;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        // levelToGoTo = NextScene.level;
+        var levelToGoTo = other.gameObject.GetComponent<NextScene>().level;
+        SceneManager.LoadScene(levelToGoTo);
     }
 }

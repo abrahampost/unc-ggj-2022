@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
+    public int level;
     private Rigidbody2D rb;
-    public string level;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +17,5 @@ public class NextScene : MonoBehaviour
     void Update()
     {
         
-    }
-
-
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Goal")) {
-            Debug.Log("test");
-            print("test");
-            SceneManager.LoadScene("Main Menu");
-        }
     }
 }
