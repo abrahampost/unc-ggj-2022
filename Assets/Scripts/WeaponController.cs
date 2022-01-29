@@ -1,18 +1,18 @@
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour {
-    public Ability primaryAbility;
-    public Ability secondaryAbility;
+    public GameObject primaryAbility;
+    public GameObject secondaryAbility;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            primaryAbility.use();
+            primaryAbility.GetComponent<Ability>().use();
         }
         if (Input.GetMouseButtonDown(1))
         {
-            secondaryAbility.use();
+            secondaryAbility.GetComponent<Ability>().use();
         }
     }
 }
