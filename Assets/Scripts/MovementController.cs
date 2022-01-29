@@ -28,6 +28,11 @@ public class MovementController : MonoBehaviour
     public Animator animator;
 
     private Rigidbody2D _rigidbody;
+
+    private GameObject Goal;
+
+    private int levelToGoTo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -200,6 +205,8 @@ public class MovementController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        SceneManager.LoadScene(0);
+        // levelToGoTo = NextScene.level;
+        var levelToGoTo = other.gameObject.GetComponent<NextScene>().level;
+        SceneManager.LoadScene(levelToGoTo);
     }
 }
