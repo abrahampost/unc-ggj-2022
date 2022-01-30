@@ -2,14 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlugKnightMovement : MonoBehaviour
+public class PlugKnightMovement : EnemyMovement
 {
-    public float speed;
-    public float maxSpeed;
-    public float decel;
-    private GameObject target;
-    public float yOffset;
-    public Animator animator;
     public float readyTime;
     public float dashTime;
     public float pauseTime;
@@ -21,15 +15,6 @@ public class PlugKnightMovement : MonoBehaviour
         READYING = 1,
         DASHING = 2,
         PAUSING = 3
-    }
-
-    void Start() {
-        target = GameObject.Find("Player");
-    }
-    void Update()
-    {
-        // GetComponent<Rigidbody2D>()
-        
     }
 
     void FixedUpdate()

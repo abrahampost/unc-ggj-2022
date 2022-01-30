@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1033474100}
   m_Layer: 0
   m_Name: Plug Knight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,6 @@ MonoBehaviour:
   speed: 5
   maxSpeed: 10
   decel: 1.05
-  target: {fileID: 0}
   yOffset: 0
   animator: {fileID: 3056327030275707429}
   readyTime: 2

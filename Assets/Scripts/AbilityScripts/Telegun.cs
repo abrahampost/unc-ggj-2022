@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Telegun : Ability
 {
@@ -8,6 +9,8 @@ public class Telegun : Ability
     public float startingDistance;
     private bool inUse;
     private GameObject currentBullet;
+    public float cooldown;
+    private bool onCooldown = false;
 
     private void Start()
     {
@@ -18,7 +21,7 @@ public class Telegun : Ability
 
     public override void use()
     {
-        if (!inUse)
+        if (!inUse && !onCooldown)
         {
             GameObject playerObject = GameObject.Find("Player");
             Vector3 mousePos = Input.mousePosition;
@@ -40,10 +43,19 @@ public class Telegun : Ability
     {
         if (inUse)
         {
+            onCooldown = true;
+            StartCoroutine(Cooldown(cooldown));
+
             GameObject playerObject = GameObject.Find("Player");
             playerObject.transform.position = currentBullet.transform.position;
             Destroy(currentBullet);
             inUse = false;
         }
+    }
+
+    IEnumerator Cooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        onCooldown = false;
     }
 }
