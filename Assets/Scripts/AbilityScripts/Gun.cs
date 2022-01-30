@@ -17,7 +17,7 @@ public class Gun : Ability
     }
 
     public override void use()
-    {
+    { 
         if (!onCooldown)
         {
             Vector3 mousePos = Input.mousePosition;
