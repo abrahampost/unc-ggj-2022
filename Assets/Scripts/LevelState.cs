@@ -17,7 +17,9 @@ public class LevelState : MonoBehaviour
 
     private void Start() {
         foreach(Dimension dim in Enum.GetValues(typeof(Dimension))) {
-            if (dim != this.dimension) RemoveTerrain(dim);
+            if (dim != this.dimension) {
+                RemoveTerrain(dim);
+            }
         }
     }
 
