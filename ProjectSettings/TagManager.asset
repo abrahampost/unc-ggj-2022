@@ -8,6 +8,8 @@ TagManager:
   - Dimension0Terrain
   - Dimension1Terrain
   - Dimension2Terrain
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
