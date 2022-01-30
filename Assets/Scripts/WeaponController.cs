@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public LevelState levelState;
+    private LevelState levelState;
     public Ability redPrimary;
     public Ability redSecondary;
     public Ability greenPrimary;
     public Ability greenSecondary;
     public Ability bluePrimary;
     public Ability blueSecondary;
+
+    private void Start() {
+        levelState = GameObject.Find("Game").GetComponent<LevelState>();
+    }
 
     void Update()
     {
