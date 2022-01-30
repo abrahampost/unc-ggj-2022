@@ -10,6 +10,7 @@ TagManager:
   - Dimension2Terrain
   - Enemy
   - Bullet
+  - DeathZone
   layers:
   - Default
   - TransparentFX

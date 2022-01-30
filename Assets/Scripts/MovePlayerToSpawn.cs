@@ -11,6 +11,11 @@ public class MovePlayerToSpawn : MonoBehaviour
     }
 
     public void ReturnToStart() {
-        GameObject.Find("Player").transform.position = transform.position + Vector3.up * .2f;
+        var player = GameObject.Find("Player");
+        player.transform.position = transform.position + Vector3.up * .2f;
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        var levelState = GameObject.Find("Game").GetComponent<LevelState>();
+        levelState.ResetTerrain();
     }
 }

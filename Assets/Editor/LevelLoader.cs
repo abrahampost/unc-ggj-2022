@@ -33,20 +33,25 @@ public class LevelLoader : EditorWindow
             LevelData level = JsonUtility.FromJson<LevelData>(textContent);
             if (level != null) {
                 Debug.Log("Successfully read level");
-                LoadDimension(level.red, "Red", 0);
-                LoadDimension(level.green, "Green", 1);
-                LoadDimension(level.blue, "Blue", 2);
+                int lowest = int.MaxValue;
+                lowest = Mathf.Min(lowest, LoadDimension(level.red, "Red", 0));
+                lowest = Mathf.Min(lowest, LoadDimension(level.green, "Green", 1));
+                lowest = Mathf.Min(lowest, LoadDimension(level.blue, "Blue", 2));
+
+                var deathZone = GameObject.FindGameObjectWithTag("DeathZone");
+                deathZone.transform.position = new Vector3(deathZone.transform.position.x, lowest - 10, 0);
             } else {
                 Debug.LogError("Unsuccessfully read level");
             }
         }
     }
 
-    static void LoadDimension(LevelObject[] dimension, string dimensionName, int dimensionNumber) {
-        var scene = EditorSceneManager.GetActiveScene();
+    static int LoadDimension(LevelObject[] dimension, string dimensionName, int dimensionNumber) {
         Dictionary<string, GameObject> cachedPrefabs = new Dictionary<string, GameObject>();
+        int lowest = int.MaxValue;
         foreach(LevelObject lo in dimension) {
             var prefabName = lo.sprite;
+            lowest = Mathf.Min(lowest, lo.y);
             if (prefabName.Equals("spawn")) {
                 var spawnPoint = GameObject.FindGameObjectWithTag("Respawn");
                 spawnPoint.transform.position = new Vector2(lo.x, lo.y);
@@ -54,7 +59,6 @@ public class LevelLoader : EditorWindow
             } else if (prefabName.Equals("goal")) {
                 var goal = GameObject.FindGameObjectWithTag("Finish");
                 goal.transform.position = new Vector2(lo.x, lo.y);
-                goal.tag = ("Dimension" + dimensionNumber + "Terrain");
                 continue;
             }
             cachedPrefabs.TryGetValue(prefabName, out GameObject prefab);
@@ -68,6 +72,6 @@ public class LevelLoader : EditorWindow
             var item = Instantiate(prefab, new Vector3(lo.x, lo.y, 0), Quaternion.identity);
         }
 
-        EditorSceneManager.SaveScene(scene);
+        return lowest;
     }
 }
