@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     public float yOffset;
     public float xOffset;
     protected Vector2 offset;
+    public Vector2 targetVector;
 
     void Start() {
         getTargets();
@@ -33,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
         Vector2 targetPosition = target.GetComponent<Rigidbody2D>().position;
         targetPosition.y += yOffset;
 
-        Vector2 targetVector = (targetPosition - gameObject.GetComponent<Rigidbody2D>().position);
+        targetVector = (targetPosition - gameObject.GetComponent<Rigidbody2D>().position);
         Vector2 deltaVel = speed * targetVector;
         deltaVel.y = 0;
 
@@ -70,7 +71,7 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.CompareTag("Bullet")) {
             GetComponent<DamageController>().takeDamage(collider.gameObject.GetComponent<DamageController>().damage);
-            collider.gameObject.SetActive(false);
+            StartCoroutine(collider.gameObject.GetComponent<LaserMovement>().SetHit());
         }
     }
 }

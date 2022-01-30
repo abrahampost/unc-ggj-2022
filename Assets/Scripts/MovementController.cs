@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
-
     public LevelState levelState;
     public float maxHorizSpeed;
     public float horizAccel;
     public float horizDecel;
+    public float inAirAccel;
     public float jumpAccel;
     public float gravity;
 
@@ -31,11 +31,13 @@ public class MovementController : MonoBehaviour
     private Transform rightDown;
 
     private int levelToGoTo;
+    private SoundManager soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -48,12 +50,26 @@ public class MovementController : MonoBehaviour
         Vector2 vel = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
         if (horizAxis > 0)
         {
-            vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            if (!onGround)
+            {
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            }
+            else
+            {
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            }
             GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (horizAxis < 0)
         {
-            vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            if (!onGround)
+            {
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            }
+            else
+            {
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            }
             GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (onGround)
@@ -73,6 +89,7 @@ public class MovementController : MonoBehaviour
             vel.y = jumpAccel;
             jumps--;
             canJump = false;
+            soundManager.PlayJump();
             StartCoroutine(JumpCooldown());
         }
         else
@@ -117,8 +134,13 @@ public class MovementController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // levelToGoTo = NextScene.level;
-        var levelToGoTo = other.gameObject.GetComponent<NextScene>().nextScene;
-        SceneManager.LoadScene(levelToGoTo);
+        if (other.gameObject.CompareTag("Bullet")) {
+            GetComponent<DamageController>().takeDamage(other.gameObject.GetComponent<DamageController>().damage);
+            StartCoroutine(other.gameObject.GetComponent<LaserMovement>().SetHit());
+        } else {
+            // levelToGoTo = NextScene.level;
+            var levelToGoTo = other.gameObject.GetComponent<NextScene>().nextScene;
+            SceneManager.LoadScene(levelToGoTo);
+        }
     }
 }

@@ -53,7 +53,7 @@ public class SkeeterMovement : EnemyMovement
 
             animator.SetBool("IsBombing", false);
             GameObject newBomb = Instantiate(bomb, transform.position, transform.rotation);
-            Destroy(newBomb, bombLifetime);
+            // Destroy(newBomb, bombLifetime);
         }
     }
 

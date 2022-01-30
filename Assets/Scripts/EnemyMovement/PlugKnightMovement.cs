@@ -71,6 +71,8 @@ public class PlugKnightMovement : EnemyMovement
         } else {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+
+        animator.SetFloat("Speed", gameObject.GetComponent<Rigidbody2D>().velocity.magnitude);
     }
 
     IEnumerator dashAttack() {
@@ -91,12 +93,15 @@ public class PlugKnightMovement : EnemyMovement
         if (collision.gameObject.CompareTag("Player")) {
             collision.gameObject.GetComponent<DamageController>().takeDamage(GetComponent<DamageController>().damage);
 
-            yield return new WaitForSeconds(0.1f);
-            animator.SetInteger("State", ((int)State.PAUSING));
-            collided = true;
+            if (animator.GetInteger("State") == ((int)State.DASHING)) {
+                yield return new WaitForSeconds(0.1f);
+                animator.SetInteger("State", ((int)State.PAUSING));
+                collided = true;
 
-            yield return new WaitForSeconds(pauseTime);
-            animator.SetInteger("State", ((int)State.WALKING));
+                yield return new WaitForSeconds(pauseTime);
+                animator.SetInteger("State", ((int)State.WALKING));
+            }
+
         }
     }
 }
