@@ -7,17 +7,17 @@ public class SkeeterMovement : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float decel;
-    public GameObject target;
     public float yOffset;
     public GameObject bomb;
     public float bombLifetime;
     public float timeBetweenBombs;
     public Animator animator;
+    private GameObject target;
 
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(DropBomb());
-        print("Started");
+        target = GameObject.Find("Player");
     }
     void FixedUpdate()
     {
@@ -60,6 +60,14 @@ public class SkeeterMovement : MonoBehaviour
             animator.SetBool("IsBombing", false);
             GameObject newBomb = Instantiate(bomb, transform.position, transform.rotation);
             Destroy(newBomb, bombLifetime);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (!collision.gameObject.CompareTag("Player")) {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<PolygonCollider2D>());
+        } else {
+            collision.gameObject.GetComponent<DamageController>().takeDamage(GetComponent<DamageController>().damage);
         }
     }
 }

@@ -7,7 +7,7 @@ public class PlugKnightMovement : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float decel;
-    public GameObject target;
+    private GameObject target;
     public float yOffset;
     public Animator animator;
     public float readyTime;
@@ -23,6 +23,9 @@ public class PlugKnightMovement : MonoBehaviour
         PAUSING = 3
     }
 
+    void Start() {
+        target = GameObject.Find("Player");
+    }
     void Update()
     {
         // GetComponent<Rigidbody2D>()
@@ -101,6 +104,9 @@ public class PlugKnightMovement : MonoBehaviour
 
     IEnumerator OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            collision.gameObject.GetComponent<DamageController>().takeDamage(GetComponent<DamageController>().damage);
+
+            yield return new WaitForSeconds(0.1f);
             animator.SetInteger("State", ((int)State.PAUSING));
             collided = true;
 
