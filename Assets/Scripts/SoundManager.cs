@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
 
+    public static bool instantiated = false;
     public AudioSource idleAudio;
     void Start() {
-        DontDestroyOnLoad(this);
-        idleAudio.Play();
+        if (instantiated) {
+            Destroy(this);
+            return;
+        }   
     }
-    
+
     public AudioSource jumpAudio;
     public void PlayJump()
     {
