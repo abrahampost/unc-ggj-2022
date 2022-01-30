@@ -6,6 +6,8 @@ public class DamageController : MonoBehaviour
 {
     public int health = 3;
     public int damage = 1;
+    protected bool onCooldown;
+    public float cooldown = .5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +21,23 @@ public class DamageController : MonoBehaviour
     }
 
     public void takeDamage(int damageTaken) {
+        if (onCooldown) {
+            return;
+        }
+
         this.health -= damageTaken;
-        print(this.health);
+        onCooldown = true;
+        StartCoroutine(Cooldown(cooldown));
+
+        // print(this.health);
     }
 
     void dealDamage(DamageController target, int damage) {
         target.takeDamage(damage);
+    }
+
+    IEnumerator Cooldown(float time) {
+        yield return new WaitForSeconds(time);
+        onCooldown = false;
     }
 }

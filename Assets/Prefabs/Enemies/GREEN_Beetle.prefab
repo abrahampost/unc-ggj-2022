@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8307212151890655645}
   m_Layer: 3
   m_Name: GREEN_Beetle
-  m_TagString: Enemy
+  m_TagString: Dimension1Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,6 +251,8 @@ MonoBehaviour:
   animator: {fileID: 1152482940}
   yOffset: 0
   xOffset: 0
+  targetVector: {x: 0, y: 0}
+  stunTime: 1
 --- !u!114 &8307212151890655645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,3 +267,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
+  cooldown: 1

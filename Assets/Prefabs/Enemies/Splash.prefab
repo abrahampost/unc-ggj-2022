@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3339673041189410416}
   m_Layer: 0
   m_Name: Splash
-  m_TagString: Untagged
+  m_TagString: Effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
+  cooldown: 1
 --- !u!50 &1043536585595430673
 Rigidbody2D:
   serializedVersion: 4

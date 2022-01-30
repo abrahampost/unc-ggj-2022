@@ -11,6 +11,34 @@ public class MovePlayerToSpawn : MonoBehaviour
     }
 
     public void ReturnToStart() {
-        GameObject.Find("Player").transform.position = transform.position + Vector3.up * .2f;
+        // var levelState = GameObject.Find("Game");
+        // levelState.GetComponent<LevelState>().ResetTerrain();
+        // GameObject.Find("Player").transform.position = transform.position + Vector3.up * .2f;
+        // GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        // Reset Enemies and effects
+        List<GameObject> enemies = new List<GameObject>();
+        enemies.AddRange(GameObject.FindGameObjectsWithTag("Dimension0Enemy"));
+        enemies.AddRange(GameObject.FindGameObjectsWithTag("Dimension1Enemy"));
+        enemies.AddRange(GameObject.FindGameObjectsWithTag("Dimension2Enemy"));
+        // var dim1enemies = GameObject.FindGameObjectsWithTag("Dimension1Enemy");
+        // var dim2enemies = GameObject.FindGameObjectsWithTag("Dimension2Enemy");
+
+        GameObject[] effects = GameObject.FindGameObjectsWithTag("Effect");
+        
+
+        foreach (GameObject enemy in enemies) {
+            enemy.GetComponent<EnemyMovement>().SendToStart();
+        }
+
+        foreach (GameObject effect in effects) {
+            Destroy(effect);
+        }
+        var player = GameObject.Find("Player");
+        player.transform.position = transform.position + Vector3.up * .2f;
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        var levelState = GameObject.Find("Game").GetComponent<LevelState>();
+        levelState.ResetTerrain();
     }
 }

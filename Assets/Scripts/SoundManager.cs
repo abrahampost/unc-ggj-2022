@@ -9,7 +9,9 @@ public class SoundManager : MonoBehaviour
         if (instantiated) {
             Destroy(this);
             return;
-        }   
+        }
+        DontDestroyOnLoad(this);
+        idleAudio.Play();
     }
 
     public AudioSource jumpAudio;

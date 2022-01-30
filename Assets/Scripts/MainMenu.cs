@@ -19,10 +19,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Level Select");
     }
 
-    public void Settings() {
-        SceneManager.LoadScene("Settings");
-    }
-
     public void Quit() {
         Debug.Log("Quit");
     }

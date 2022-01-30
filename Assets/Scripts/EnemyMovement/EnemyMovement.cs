@@ -13,12 +13,16 @@ public class EnemyMovement : MonoBehaviour
     public float xOffset;
     protected Vector2 offset;
     public Vector2 targetVector;
+    private bool stunned;
+    public float stunTime;
+    private Vector2 startPos;
 
     void Start() {
         getTargets();
     }
 
     protected void getTargets() {
+        startPos = transform.position;
         target = GameObject.Find("Player");
         offset = new Vector2(xOffset, yOffset);
     }
@@ -27,8 +31,23 @@ public class EnemyMovement : MonoBehaviour
         
     }
 
+    public GameObject getTarget() {
+        return target;
+    }
+
+    protected bool IsStunned() {
+        return stunned;
+    }
+
+    public void SendToStart() {
+        GetComponent<Rigidbody2D>().transform.position = startPos;
+    }
+
     void FixedUpdate()
     {
+        if (stunned) {
+            return;
+        }
         // Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Get Target position
         Vector2 targetPosition = target.GetComponent<Rigidbody2D>().position;
@@ -49,7 +68,8 @@ public class EnemyMovement : MonoBehaviour
         }
         
         if (targetVector.magnitude < offset.magnitude) {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            var y = gameObject.GetComponent<Rigidbody2D>().velocity.y;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, y);
         }
         
         // Flip sprite
@@ -72,6 +92,16 @@ public class EnemyMovement : MonoBehaviour
         if (collider.gameObject.CompareTag("Bullet")) {
             GetComponent<DamageController>().takeDamage(collider.gameObject.GetComponent<DamageController>().damage);
             StartCoroutine(collider.gameObject.GetComponent<LaserMovement>().SetHit());
+            StartCoroutine(Stun());
         }
+    }
+
+    protected IEnumerator Stun() {
+        stunned = true;
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        animator.SetFloat("Speed", Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x));
+
+        yield return new WaitForSeconds(stunTime);
+        stunned = false;
     }
 }

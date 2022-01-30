@@ -11,6 +11,10 @@ TagManager:
   - Enemy
   - Bullet
   - DeathZone
+  - Dimension0Enemy
+  - Dimension1Enemy
+  - Dimension2Enemy
+  - Effect
   layers:
   - Default
   - TransparentFX
@@ -53,4 +57,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3881165549
+    locked: 0
+  - name: UI
+    uniqueID: 1037105413
     locked: 0

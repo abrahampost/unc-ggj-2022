@@ -15,6 +15,10 @@ public class SkeeterMovement : EnemyMovement
     }
     void FixedUpdate()
     {
+        if (IsStunned()) {
+            animator.SetBool("IsBombing", false);
+            return;
+        }
 
         // Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Get Target position
@@ -51,8 +55,11 @@ public class SkeeterMovement : EnemyMovement
 
             yield return new WaitForSeconds(timeBetweenBombs/3);
 
-            animator.SetBool("IsBombing", false);
-            GameObject newBomb = Instantiate(bomb, transform.position, transform.rotation);
+            if (!IsStunned()) {
+                animator.SetBool("IsBombing", false);
+                var gunSpawn = GameObject.Find("BombSpawn").transform;
+                GameObject newBomb = Instantiate(bomb, gunSpawn.position, gunSpawn.rotation);
+            }
             // Destroy(newBomb, bombLifetime);
         }
     }
