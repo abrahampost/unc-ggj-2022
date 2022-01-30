@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8351119251925931699}
   m_Layer: 0
   m_Name: GREEN_Floor_Basic
-  m_TagString: Untagged
+  m_TagString: Dimension1Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

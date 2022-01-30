@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &2102146503479206359
 BoxCollider2D:
@@ -197,8 +197,8 @@ MonoBehaviour:
   levelState: {fileID: 0}
   redPrimary: {fileID: 7433436952798516890}
   redSecondary: {fileID: 3867884919283569345}
-  greenPrimary: {fileID: 0}
-  greenSecondary: {fileID: 0}
+  greenPrimary: {fileID: 7433436952798516890}
+  greenSecondary: {fileID: 6966470418540513808}
   bluePrimary: {fileID: 0}
   blueSecondary: {fileID: 0}
 --- !u!1001 &3587064758303378550
@@ -409,3 +409,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8327904902638401116, guid: 36dddde55bbba8443bea0a639a610461, type: 3}
   m_PrefabInstance: {fileID: 8130775623316422068}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6966470418540513808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1187699840208992164, guid: 36dddde55bbba8443bea0a639a610461, type: 3}
+  m_PrefabInstance: {fileID: 8130775623316422068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795f87c277e77fd4789e10419ed0f3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

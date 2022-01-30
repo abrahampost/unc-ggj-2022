@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7465124944353132207}
   m_Layer: 0
   m_Name: GREEN_Floor_Inner_Corner_Right
-  m_TagString: Untagged
+  m_TagString: Dimension1Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

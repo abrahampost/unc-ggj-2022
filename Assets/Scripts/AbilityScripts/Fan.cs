@@ -9,7 +9,9 @@ public class Fan : Ability
     public float fanSpeed;
     public override void use()
     {
-        var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.nearClipPlane;
+        var mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
         GameObject playerObject = GameObject.Find("Player");
         var direction = new Vector2(mousePosition.x - playerObject.transform.position.x, mousePosition.y - transform.position.y);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction);

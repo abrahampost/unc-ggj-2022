@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4106497430217219492}
   m_Layer: 0
   m_Name: RED_Floor_Inner_Corner_Left
-  m_TagString: Untagged
+  m_TagString: Dimension0Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
