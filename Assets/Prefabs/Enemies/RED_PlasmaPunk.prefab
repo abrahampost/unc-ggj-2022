@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 7472676426831789788}
   - component: {fileID: 7472676426831789791}
   - component: {fileID: 7472676426831789777}
-  m_Layer: 0
-  m_Name: PlasmaPunk
+  m_Layer: 3
+  m_Name: RED_PlasmaPunk
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,9 +256,9 @@ MonoBehaviour:
   speed: 1
   maxSpeed: 2
   decel: 1.05
+  animator: {fileID: 7472676426831789777}
   yOffset: 0
   xOffset: 5
-  animator: {fileID: 7472676426831789777}
 --- !u!95 &7472676426831789777
 Animator:
   serializedVersion: 3
