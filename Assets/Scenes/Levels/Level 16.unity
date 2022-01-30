@@ -2197,6 +2197,7 @@ MonoBehaviour:
   xOffset: 0
   targetVector: {x: 0, y: 0}
   stunTime: 1
+  range: 0
   bomb: {fileID: 6078000052071288269, guid: 6c4634c4892c4b14e97530e8e956feb4, type: 3}
   bombLifetime: 1
   timeBetweenBombs: 3
@@ -4263,7 +4264,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189657783, guid: 2101d653b91c00b4e9a90e0a7a31a3a6, type: 3}
       propertyPath: nextScene
-      value: End Scene
+      value: Level 17
       objectReference: {fileID: 0}
     - target: {fileID: 5134839716437087645, guid: 2101d653b91c00b4e9a90e0a7a31a3a6, type: 3}
       propertyPath: m_RootOrder

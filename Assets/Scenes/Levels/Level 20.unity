@@ -5543,7 +5543,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189657783, guid: 2101d653b91c00b4e9a90e0a7a31a3a6, type: 3}
       propertyPath: nextScene
-      value: Main Menu
+      value: End Scene
       objectReference: {fileID: 0}
     - target: {fileID: 5134839716437087645, guid: 2101d653b91c00b4e9a90e0a7a31a3a6, type: 3}
       propertyPath: m_RootOrder
