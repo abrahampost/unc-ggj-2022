@@ -104,6 +104,8 @@ public class PlugKnightMovement : MonoBehaviour
 
     IEnumerator OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            collision.gameObject.GetComponent<DamageController>().takeDamage(GetComponent<DamageController>().damage);
+
             yield return new WaitForSeconds(0.1f);
             animator.SetInteger("State", ((int)State.PAUSING));
             collided = true;
