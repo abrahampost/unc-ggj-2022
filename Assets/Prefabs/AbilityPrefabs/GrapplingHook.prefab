@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4529243087295424065}
   - component: {fileID: 2760251339124726197}
   - component: {fileID: 3807461529188022639}
-  - component: {fileID: -1538176280751128147}
   m_Layer: 0
   m_Name: GrapplingHook
   m_TagString: Untagged
@@ -49,7 +48,7 @@ MonoBehaviour:
   bulletSpeed: 20
   timeAlive: 5
   startingDistance: 0.8
-  joint: {fileID: -1538176280751128147}
+  joint: {fileID: 0}
   line: {fileID: 5283212144792597367, guid: 3d0152902a1a2a441a0d7c04c67f7af1, type: 3}
 --- !u!50 &3807461529188022639
 Rigidbody2D:
@@ -72,23 +71,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!231 &-1538176280751128147
-SpringJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4851585169847738611}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -5.6861954, y: -0.18428633}
-  m_AutoConfigureDistance: 1
-  m_Distance: 5.4047217
-  m_DampingRatio: 0
-  m_Frequency: 1

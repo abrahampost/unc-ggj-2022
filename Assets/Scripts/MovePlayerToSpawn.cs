@@ -11,6 +11,6 @@ public class MovePlayerToSpawn : MonoBehaviour
     }
 
     public void ReturnToStart() {
-        GameObject.Find("Player").transform.position = transform.position;
+        GameObject.Find("Player").transform.position = transform.position + Vector3.up * .2f;
     }
 }
