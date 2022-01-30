@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -48,6 +47,7 @@ public class MovementController : MonoBehaviour
     {
         CheckVectors();
         if (Input.GetKeyUp(KeyCode.LeftShift)) levelState.ChangeDimension();
+        if (Input.GetKey(KeyCode.Escape)) SceneManager.LoadScene("Main Menu");
         float horizAxis = Input.GetAxisRaw("Horizontal");
         bool jump = Input.GetButtonDown("Jump");
         Vector2 vel = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
