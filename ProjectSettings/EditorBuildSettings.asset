@@ -57,53 +57,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level 15.unity
     guid: fb9f1bf00f67964459c932fcbe24f93f
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 20.unity
+    path: Assets/Scenes/Levels/Level 16.unity
     guid: ff3f54728fe756942b598987f2155551
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 19.unity
+    path: Assets/Scenes/Levels/Level 17.unity
     guid: acaf3bf5cc43834489d119707d0caca5
   - enabled: 1
     path: Assets/Scenes/Levels/Level 18.unity
     guid: c17c7c1717a7a5648aa50a2e943ae97e
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 17.unity
+    path: Assets/Scenes/Levels/Level 19.unity
     guid: 28f7324815fda8b4c8e246bf4276ea52
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 16.unity
+    path: Assets/Scenes/Levels/Level 20.unity
     guid: 4a9d96fd3851d93408bd1aa4acca7d88
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 21.unity
-    guid: 73a42da83c20a9a4f9e6cf532d3948e7
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 22.unity
-    guid: f5fa3b6e436029145af4e29508832d49
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 23.unity
-    guid: 191b57e408a8e40468a019e43f583c72
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 24.unity
-    guid: f1c7cfa065121674a964a2dcbd04418c
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 25.unity
-    guid: d17b8d8695329204a8138b92a8b43c57
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 26.unity
-    guid: e155ab33dc3a40d478a36d3e66148eb7
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 27.unity
-    guid: a6355fc714f136340b8d83ca329bf343
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 28.unity
-    guid: b386e66b19bdca14581a57eb88af6fbc
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 29.unity
-    guid: 675c3f67ad2142344b7f712223a6c4f3
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 30.unity
-    guid: a7661a612a9a9a54885841f537a76f83
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level 31.unity
-    guid: 08668928d8850da4ea11303a690ea9b8
   - enabled: 1
     path: Assets/Cutscenes/Intro Scene.unity
     guid: e22e41fca094ba34bb54e8facd57ffed
