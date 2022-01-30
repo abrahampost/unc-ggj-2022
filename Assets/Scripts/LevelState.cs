@@ -14,7 +14,7 @@ public class LevelState : MonoBehaviour
     public bool greenEnabled;
     public bool blueEnabled;
     public Dimension dimension = Dimension.RED;
-    public Dimension startDimension = Dimension.RED;
+    private Dimension startDimension;
     private SoundManager soundManager;
 
     GameObject[] redTerrain;

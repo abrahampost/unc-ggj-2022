@@ -94,7 +94,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88.09842, y: 113.99997}
+  m_AnchoredPosition: {x: -478.0984, y: 325.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1346993113998608480
@@ -310,7 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7295380900b127f43b82d3559a015352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelState: {fileID: 0}
   maxHorizSpeed: 6
   horizAccel: 1000
   horizDecel: 1.05
@@ -335,7 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38651e35da818f46989e62c2892e5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelState: {fileID: 0}
   redPrimary: {fileID: 7433436952798516890}
   redSecondary: {fileID: 3867884919283569345}
   greenPrimary: {fileID: 7433436952798516890}
@@ -376,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
-  cooldown: 1
+  cooldown: 0.5
   hearts:
   - {fileID: 2553761068808020502}
   - {fileID: 679892180922801406}
@@ -501,7 +499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293, y: 114}
+  m_AnchoredPosition: {x: -683, y: 326}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1505825854659031914
@@ -616,7 +614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.352417, y: 113.99997}
+  m_AnchoredPosition: {x: -375.64758, y: 325.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8318947098829411412
@@ -691,7 +689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116.80322, y: 113.99997}
+  m_AnchoredPosition: {x: -273.19678, y: 325.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4706973897328923309
@@ -866,7 +864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -190.5492, y: 113.99997}
+  m_AnchoredPosition: {x: -580.5492, y: 325.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &662228119969192850

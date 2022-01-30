@@ -39,7 +39,7 @@ public class LevelLoader : EditorWindow
                 lowest = Mathf.Min(lowest, LoadDimension(level.blue, "Blue", 2));
 
                 var deathZone = GameObject.FindGameObjectWithTag("DeathZone");
-                deathZone.transform.position = new Vector3(deathZone.transform.position.x, lowest - 10, 0);
+                deathZone.transform.position = new Vector3(deathZone.transform.position.x, lowest - 30, 0);
             } else {
                 Debug.LogError("Unsuccessfully read level");
             }
