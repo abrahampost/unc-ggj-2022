@@ -44,7 +44,7 @@ public class MovementController : MonoBehaviour
     {
         CheckVectors();
         ResetJumps();
-        if (Input.GetKeyUp(KeyCode.F)) levelState.ChangeDimension();
+        if (Input.GetKeyUp(KeyCode.LeftShift)) levelState.ChangeDimension();
         float horizAxis = Input.GetAxisRaw("Horizontal");
         bool jump = Input.GetButton("Jump");
         Vector2 vel = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);

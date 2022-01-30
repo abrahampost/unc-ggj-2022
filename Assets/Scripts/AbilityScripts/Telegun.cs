@@ -21,7 +21,9 @@ public class Telegun : Ability
         if (!inUse)
         {
             GameObject playerObject = GameObject.Find("Player");
-            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = Camera.main.nearClipPlane;
+            var mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
             var normalizedDirection = new Vector2(mousePosition.x - playerObject.transform.position.x, mousePosition.y - playerObject.transform.position.y).normalized;
             currentBullet = Instantiate(bullet, new Vector2(playerObject.transform.position.x, playerObject.transform.position.y) + (normalizedDirection * startingDistance), transform.rotation);
             currentBullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletSpeed;
