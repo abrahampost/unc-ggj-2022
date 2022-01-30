@@ -616,6 +616,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2102146503479206358, guid: 110f65817b3388349a0813451f83170f, type: 3}
+      propertyPath: inAirAccel
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102146503479206358, guid: 110f65817b3388349a0813451f83170f, type: 3}
       propertyPath: levelState
       value: 
       objectReference: {fileID: 1545671815}
