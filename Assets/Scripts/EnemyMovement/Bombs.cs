@@ -14,7 +14,6 @@ public class Bombs : MonoBehaviour
         //     collision.gameObject.GetComponent<DamageController>().takeDamage(GetComponent<DamageController>().damage);
         // }
 
-        print(animator.GetBool("Falling"));
         animator.SetBool("Falling", false);
 
         if (collision.gameObject.CompareTag("Player")) {
