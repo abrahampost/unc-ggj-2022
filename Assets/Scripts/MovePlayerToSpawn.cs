@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MovePlayerToSpawn : MonoBehaviour
 {
+
+    private int iteration = 0;
     // Start is called before the first frame update
     void Start()
     {
         this.ReturnToStart();
+        iteration++;
     }
 
     public void ReturnToStart() {
@@ -29,7 +32,9 @@ public class MovePlayerToSpawn : MonoBehaviour
         
 
         foreach (GameObject enemy in enemies) {
-            enemy.GetComponent<EnemyMovement>().SendToStart();
+            if (iteration > 0) {
+                enemy.GetComponent<EnemyMovement>().SendToStart();
+            }
         }
 
         foreach (GameObject effect in effects) {
