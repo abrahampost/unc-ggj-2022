@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     // public string levelToLoad = "Level Select";
     public void Play() {
         Debug.Log("Play");
-        SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene("Cinematic Test");
     }
 
     public void Menu() {
