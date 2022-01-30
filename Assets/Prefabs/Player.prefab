@@ -104,12 +104,12 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 82d41249a8a635f439735ee611155f13, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &2102146503479206359
 BoxCollider2D:
@@ -171,7 +171,7 @@ MonoBehaviour:
   levelState: {fileID: 0}
   maxHorizSpeed: 10
   horizAccel: 1000
-  horizDecel: 1.02
+  horizDecel: 1.05
   jumpAccel: 20
   doubleJumpCooldown: 1
   gravity: 90
@@ -199,7 +199,7 @@ MonoBehaviour:
   redSecondary: {fileID: 3867884919283569345}
   greenPrimary: {fileID: 7433436952798516890}
   greenSecondary: {fileID: 6966470418540513808}
-  bluePrimary: {fileID: 0}
+  bluePrimary: {fileID: 7433436952798516890}
   blueSecondary: {fileID: 0}
 --- !u!1001 &3587064758303378550
 PrefabInstance:
