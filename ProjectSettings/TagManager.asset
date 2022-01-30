@@ -11,6 +11,10 @@ TagManager:
   - Enemy
   - Bullet
   - DeathZone
+  - Dimension0Enemy
+  - Dimension1Enemy
+  - Dimension2Enemy
+  - Effect
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8780557982136505116}
   m_Layer: 3
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
+  cooldown: 1
 --- !u!58 &-6487889838934252214
 CircleCollider2D:
   m_ObjectHideFlags: 0

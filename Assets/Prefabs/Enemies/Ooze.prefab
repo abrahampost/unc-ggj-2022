@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2724947902839266073}
   m_Layer: 3
   m_Name: Ooze
-  m_TagString: Untagged
+  m_TagString: Effect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
+  cooldown: 1
 --- !u!50 &-5504396708487909312
 Rigidbody2D:
   serializedVersion: 4

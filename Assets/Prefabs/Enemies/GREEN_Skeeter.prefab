@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 1372541929}
   m_Layer: 3
   m_Name: GREEN_Skeeter
-  m_TagString: Enemy
+  m_TagString: Dimension1Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -684,3 +684,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
+  cooldown: 1

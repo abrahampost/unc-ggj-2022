@@ -15,12 +15,14 @@ public class EnemyMovement : MonoBehaviour
     public Vector2 targetVector;
     private bool stunned;
     public float stunTime;
+    private Vector2 startPos;
 
     void Start() {
         getTargets();
     }
 
     protected void getTargets() {
+        startPos = transform.position;
         target = GameObject.Find("Player");
         offset = new Vector2(xOffset, yOffset);
     }
@@ -35,6 +37,10 @@ public class EnemyMovement : MonoBehaviour
 
     protected bool IsStunned() {
         return stunned;
+    }
+
+    public void SendToStart() {
+        GetComponent<Rigidbody2D>().transform.position = startPos;
     }
 
     void FixedUpdate()
@@ -62,7 +68,8 @@ public class EnemyMovement : MonoBehaviour
         }
         
         if (targetVector.magnitude < offset.magnitude) {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            var y = gameObject.GetComponent<Rigidbody2D>().velocity.y;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, y);
         }
         
         // Flip sprite

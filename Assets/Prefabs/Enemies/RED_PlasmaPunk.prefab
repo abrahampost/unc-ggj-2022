@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7472676426831789777}
   m_Layer: 3
   m_Name: RED_PlasmaPunk
-  m_TagString: Enemy
+  m_TagString: Dimension0Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
+  cooldown: 1
 --- !u!114 &7472676426831789791
 MonoBehaviour:
   m_ObjectHideFlags: 0

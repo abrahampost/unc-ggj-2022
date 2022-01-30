@@ -9,13 +9,14 @@ public class PlayerHealth : DamageController
     public Image[] hearts;
     public Sprite heart;
     private GameObject healthbar;
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    //     healthbar = GameObject.Find("HealthBar");
-    // }
 
     void Update() {
+        if (health <= 0) {
+            GameObject.Find("SpawnPoint").GetComponent<MovePlayerToSpawn>().ReturnToStart();
+            health = 3;
+            onCooldown = false;
+        }
+
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health) {
