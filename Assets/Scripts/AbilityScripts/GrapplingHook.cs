@@ -26,6 +26,7 @@ public class GrapplingHook : Ability
         {
             Destroy(currentLine);
             currentLine = null;
+            joint.enabled = false;
         }
         else
         {
@@ -42,10 +43,6 @@ public class GrapplingHook : Ability
 
                 Destroy(currentBullet, timeAlive);
             }
-            else
-            {
-                Destroy(currentBullet);
-            }
         }
     }
 
@@ -58,20 +55,21 @@ public class GrapplingHook : Ability
     {
         ContactPoint2D contact = collision.GetContact(0);
         Destroy(currentLine);
+        Vector2 bulletFinalSpot = bullet.transform.position;
         Destroy(bullet);
-        currentBullet = null;
         Destroy(currentBullet);
+        currentBullet = null;
 
-        float len = (contact.point - (Vector2)transform.position).magnitude;
+        Vector2 diff = bulletFinalSpot - new Vector2(transform.parent.position.x, transform.parent.position.y);
         joint.connectedBody = contact.collider.GetComponent<Rigidbody2D>();
-        joint.connectedAnchor = contact.point;
-        joint.distance = .95f * len;
+        joint.distance = diff.magnitude * .95f;
 
         currentLine = Instantiate(line, new Vector2(playerObject.transform.position.x, playerObject.transform.position.y), transform.rotation);
         currentLineRenderer = currentLine.GetComponent<LineRenderer>();
         currentLineRenderer.SetPosition(1, contact.point);
         currentLineRenderer.SetPosition(0, playerObject.transform.position);
-        currentLineRenderer.SetWidth(.1f, .1f);
+        currentLineRenderer.startWidth = .1f;
+        currentLineRenderer.endWidth = .1f;
         joint.enabled = true;
     }
 
