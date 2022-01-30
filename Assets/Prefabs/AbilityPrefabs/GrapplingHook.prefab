@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6078000052071288269, guid: f3dedc082b148bb4786c5e1dc2207dfc, type: 3}
-  bulletSpeed: 20
+  bulletSpeed: 40
   timeAlive: 5
   startingDistance: 0.8
   joint: {fileID: 0}
