@@ -32,6 +32,7 @@ public class MovementController : MonoBehaviour
 
     private int levelToGoTo;
     private SoundManager soundManager;
+    private WeaponController weaponController;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class MovementController : MonoBehaviour
         levelState = GameObject.Find("Game").GetComponent<LevelState>();
         _rigidbody = GetComponent<Rigidbody2D>();
         soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
+        weaponController = GameObject.Find("Player").GetComponent<WeaponController>();
     }
 
     // Update is called once per frame
@@ -49,21 +51,25 @@ public class MovementController : MonoBehaviour
         float horizAxis = Input.GetAxisRaw("Horizontal");
         bool jump = Input.GetButtonDown("Jump");
         Vector2 vel = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
+        if (weaponController.currentAbility == "Grapple")
+        {
+            return;
+        }
         if (horizAxis > 0)
         {
-            if (onGround && !Input.GetMouseButton(1))
+            if (!onGround && !Input.GetMouseButton(1))
             {
-                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
             }
             else
             {
-                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
             }
             GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (horizAxis < 0)
         {
-            if (!onGround)
+            if (!onGround && !Input.GetMouseButton(1))
             {
                 vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
             }
