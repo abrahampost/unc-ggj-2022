@@ -14,15 +14,28 @@ public class LevelState : MonoBehaviour
     public bool greenEnabled;
     public bool blueEnabled;
     public Dimension dimension = Dimension.RED;
+    public Dimension startDimension = Dimension.RED;
     private SoundManager soundManager;
 
+    GameObject[] redTerrain;
+    GameObject[] greenTerrain;
+    GameObject[] blueTerrain;
+
     private void Start() {
+        this.startDimension = this.dimension;
+        LoadTerrain();
         foreach(Dimension dim in Enum.GetValues(typeof(Dimension))) {
             if (dim != this.dimension) {
                 RemoveTerrain(dim);
             }
         }
         soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
+    }
+
+    private void LoadTerrain() {
+        this.redTerrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(Dimension.RED));
+        this.greenTerrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(Dimension.GREEN));
+        this.blueTerrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(Dimension.BLUE));
     }
 
     public void ChangeDimension() 
@@ -64,9 +77,19 @@ public class LevelState : MonoBehaviour
         }
     }
 
+    private GameObject[] GetTerrain(Dimension dim) {
+        if (dim == Dimension.RED) {
+            return this.redTerrain;
+        } else if (dim == Dimension.GREEN) {
+            return this.greenTerrain;
+        } else {
+            return this.blueTerrain;
+        }
+    }
+
     private void RemoveTerrain(Dimension dim)
     {
-        GameObject[] terrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(dim));
+        GameObject[] terrain = GetTerrain(dim);
         foreach(var piece in terrain) {
             piece.GetComponent<Renderer>().enabled = false;
             piece.GetComponent<BoxCollider2D>().enabled = false;
@@ -75,7 +98,7 @@ public class LevelState : MonoBehaviour
 
     private void AddTerrain(Dimension dim)
     {
-        GameObject[] terrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(dim));
+        GameObject[] terrain = GetTerrain(dim);
         foreach(var piece in terrain) {
             piece.GetComponent<Renderer>().enabled = true;
             piece.GetComponent<BoxCollider2D>().enabled = true;
@@ -83,6 +106,11 @@ public class LevelState : MonoBehaviour
 
     }
 
-
+    public void ResetTerrain() {
+        if (this.dimension == this.startDimension) return;
+        RemoveTerrain(this.dimension);
+        AddTerrain(this.startDimension);
+        this.dimension = this.startDimension;
+    }
 
 }
