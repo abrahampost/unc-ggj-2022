@@ -25,6 +25,7 @@ public class MovePlayerToSpawn : MonoBehaviour
         // var dim2enemies = GameObject.FindGameObjectsWithTag("Dimension2Enemy");
 
         GameObject[] effects = GameObject.FindGameObjectsWithTag("Effect");
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
         
 
         foreach (GameObject enemy in enemies) {
@@ -34,6 +35,11 @@ public class MovePlayerToSpawn : MonoBehaviour
         foreach (GameObject effect in effects) {
             Destroy(effect);
         }
+
+        foreach (GameObject bullet in bullets) {
+            Destroy(bullet);
+        }
+
         var player = GameObject.Find("Player");
         player.transform.position = transform.position + Vector3.up * .2f;
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;

@@ -253,6 +253,7 @@ MonoBehaviour:
   xOffset: 0
   targetVector: {x: 0, y: 0}
   stunTime: 1
+  range: 10
 --- !u!114 &8307212151890655645
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private bool stunned;
     public float stunTime;
     private Vector2 startPos;
+    public float range;
 
     void Start() {
         getTargets();
@@ -39,8 +40,13 @@ public class EnemyMovement : MonoBehaviour
         return stunned;
     }
 
+    protected bool InRange() {
+        return targetVector.magnitude < range;
+    }
+
     public void SendToStart() {
         GetComponent<Rigidbody2D>().transform.position = startPos;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
 
     void FixedUpdate()
@@ -67,7 +73,8 @@ public class EnemyMovement : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = newVel;
         }
         
-        if (targetVector.magnitude < offset.magnitude) {
+        if (targetVector.magnitude < offset.magnitude || !InRange()) {
+        // if (targetVector.magnitude < offset.magnitude) {
             var y = gameObject.GetComponent<Rigidbody2D>().velocity.y;
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, y);
         }

@@ -155,6 +155,7 @@ MonoBehaviour:
   xOffset: 0
   targetVector: {x: 0, y: 0}
   stunTime: 1
+  range: 10
   readyTime: 2
   dashTime: 0.2
   pauseTime: 1
