@@ -47,8 +47,7 @@ MonoBehaviour:
   redEnabled: 1
   greenEnabled: 1
   blueEnabled: 0
-  startDimension: 0
-  curDimension: 0
+  dimension: 0
 --- !u!1 &1752936210422128116
 GameObject:
   m_ObjectHideFlags: 0
