@@ -46,3 +46,4 @@ MonoBehaviour:
   bullet: {fileID: 6078000052071288269, guid: 12e382f88b39cb447a2cd56f66a31549, type: 3}
   bulletSpeed: 20
   startingDistance: 0.8
+  cooldown: 2

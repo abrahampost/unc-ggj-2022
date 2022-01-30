@@ -47,3 +47,4 @@ MonoBehaviour:
   bulletSpeed: 30
   timeAlive: 3
   startingDistance: 0.8
+  cooldown: 2

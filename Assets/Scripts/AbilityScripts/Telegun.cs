@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Telegun : Ability
 {
@@ -8,17 +9,20 @@ public class Telegun : Ability
     public float startingDistance;
     private bool inUse;
     private GameObject currentBullet;
+    public float cooldown;
+    private bool onCooldown = false;
+    private SoundManager soundManager;
 
     private void Start()
     {
         inUse = false;
         currentBullet = null;
-        // playerObject = GameObject.Find("Player");
+        soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
     }
 
     public override void use()
     {
-        if (!inUse)
+        if (!inUse && !onCooldown)
         {
             GameObject playerObject = GameObject.Find("Player");
             Vector3 mousePos = Input.mousePosition;
@@ -26,8 +30,15 @@ public class Telegun : Ability
             var mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
             var normalizedDirection = new Vector2(mousePosition.x - playerObject.transform.position.x, mousePosition.y - playerObject.transform.position.y).normalized;
             currentBullet = Instantiate(bullet, new Vector2(playerObject.transform.position.x, playerObject.transform.position.y) + (normalizedDirection * startingDistance), transform.rotation);
+            currentBullet.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(normalizedDirection.y, normalizedDirection.x) * Mathf.Rad2Deg, Vector3.forward);
             currentBullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletSpeed;
             inUse = true;
+            soundManager.ShootingTelegun();
+        }
+        if (inUse)
+        {
+            var currentVelocity = currentBullet.GetComponent<Rigidbody2D>().velocity.normalized;
+            currentBullet.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(currentVelocity.y, currentVelocity.x) * Mathf.Rad2Deg, Vector3.forward);
         }
     }
 
@@ -40,10 +51,21 @@ public class Telegun : Ability
     {
         if (inUse)
         {
+            onCooldown = true;
+            StartCoroutine(Cooldown(cooldown));
+
             GameObject playerObject = GameObject.Find("Player");
             playerObject.transform.position = currentBullet.transform.position;
             Destroy(currentBullet);
             inUse = false;
+            soundManager.ShootingTelegunStop();
+            soundManager.TeleportingTelegun();
         }
+    }
+
+    IEnumerator Cooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        onCooldown = false;
     }
 }
