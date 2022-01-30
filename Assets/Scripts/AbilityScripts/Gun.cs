@@ -10,6 +10,11 @@ public class Gun : Ability
     public float startingDistance;
     public float cooldown;
     private bool onCooldown = false;
+    private SoundManager soundManager;
+
+    void Start() {
+        soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
+    }
 
     public override void use()
     {
@@ -24,6 +29,8 @@ public class Gun : Ability
             GameObject newBullet = Instantiate(bullet, new Vector2(playerObject.transform.position.x, playerObject.transform.position.y) + (normalizedDirection * startingDistance), Quaternion.AngleAxis(Mathf.Atan2(normalizedDirection.y, normalizedDirection.x) * Mathf.Rad2Deg, Vector3.forward));
             newBullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletSpeed;
             Destroy(newBullet, timeAlive);
+
+            soundManager.ShootGun();
 
             onCooldown = true;
             StartCoroutine(Cooldown(cooldown));

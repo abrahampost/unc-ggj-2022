@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
-
     public LevelState levelState;
     public float maxHorizSpeed;
     public float horizAccel;
@@ -31,11 +30,13 @@ public class MovementController : MonoBehaviour
     private Transform rightDown;
 
     private int levelToGoTo;
+    private SoundManager soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -73,6 +74,7 @@ public class MovementController : MonoBehaviour
             vel.y = jumpAccel;
             jumps--;
             canJump = false;
+            soundManager.PlayJump();
             StartCoroutine(JumpCooldown());
         }
         else

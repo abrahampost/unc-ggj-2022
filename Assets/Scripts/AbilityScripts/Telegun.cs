@@ -11,12 +11,13 @@ public class Telegun : Ability
     private GameObject currentBullet;
     public float cooldown;
     private bool onCooldown = false;
+    private SoundManager soundManager;
 
     private void Start()
     {
         inUse = false;
         currentBullet = null;
-        // playerObject = GameObject.Find("Player");
+        soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
     }
 
     public override void use()
@@ -31,6 +32,7 @@ public class Telegun : Ability
             currentBullet = Instantiate(bullet, new Vector2(playerObject.transform.position.x, playerObject.transform.position.y) + (normalizedDirection * startingDistance), transform.rotation);
             currentBullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletSpeed;
             inUse = true;
+            soundManager.ShootingTelegun();
         }
     }
 
@@ -50,6 +52,8 @@ public class Telegun : Ability
             playerObject.transform.position = currentBullet.transform.position;
             Destroy(currentBullet);
             inUse = false;
+            soundManager.ShootingTelegunStop();
+            soundManager.TeleportingTelegun();
         }
     }
 

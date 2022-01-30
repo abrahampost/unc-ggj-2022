@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7295380900b127f43b82d3559a015352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpAudio: {fileID: 3063515158266156380, guid: 2d62126a5edbcfb489af8f365466be58, type: 3}
   levelState: {fileID: 0}
   maxHorizSpeed: 6
   horizAccel: 1000
