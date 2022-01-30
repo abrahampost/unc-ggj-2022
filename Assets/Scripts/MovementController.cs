@@ -137,10 +137,12 @@ public class MovementController : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet")) {
             GetComponent<DamageController>().takeDamage(other.gameObject.GetComponent<DamageController>().damage);
             StartCoroutine(other.gameObject.GetComponent<LaserMovement>().SetHit());
-        } else {
-            // levelToGoTo = NextScene.level;
+        } else if(other.gameObject.CompareTag("Finish")) {
             var levelToGoTo = other.gameObject.GetComponent<NextScene>().nextScene;
             SceneManager.LoadScene(levelToGoTo);
+        } else if (other.gameObject.CompareTag("DeathZone")) {
+            var spawnPoint = GameObject.FindWithTag("Respawn");
+            spawnPoint.GetComponent<MovePlayerToSpawn>().ReturnToStart();
         }
     }
 }
