@@ -18,6 +18,7 @@ public class Bombs : MonoBehaviour
         animator.SetBool("Falling", false);
 
         if (collision.gameObject.CompareTag("Player")) {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<PolygonCollider2D>());
             collision.gameObject.GetComponent<DamageController>().takeDamage(GetComponent<DamageController>().damage);
         }
 

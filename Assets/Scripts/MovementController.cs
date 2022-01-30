@@ -134,8 +134,13 @@ public class MovementController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // levelToGoTo = NextScene.level;
-        var levelToGoTo = other.gameObject.GetComponent<NextScene>().nextScene;
-        SceneManager.LoadScene(levelToGoTo);
+        if (other.gameObject.CompareTag("Bullet")) {
+            GetComponent<DamageController>().takeDamage(other.gameObject.GetComponent<DamageController>().damage);
+            StartCoroutine(other.gameObject.GetComponent<LaserMovement>().SetHit());
+        } else {
+            // levelToGoTo = NextScene.level;
+            var levelToGoTo = other.gameObject.GetComponent<NextScene>().nextScene;
+            SceneManager.LoadScene(levelToGoTo);
+        }
     }
 }
