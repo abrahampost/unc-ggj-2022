@@ -56,7 +56,7 @@ public class LevelState : MonoBehaviour
         this.RemoveTerrain(this.dimension);
         this.RemoveEnemies(this.dimension);
         this.AddTerrain(nextDimension);
-        this.AddEnemies(this.dimension);
+        this.AddEnemies(nextDimension);
         this.dimension = nextDimension;
         soundManager.ChangeDimension();
     }
@@ -134,7 +134,7 @@ public class LevelState : MonoBehaviour
         GameObject[] terrain = GetTerrain(dim);
         foreach(var piece in terrain) {
             piece.GetComponent<Renderer>().enabled = false;
-            piece.GetComponent<BoxCollider2D>().enabled = false;
+            piece.GetComponent<Collider2D>().enabled = false;
         }
     }
 
@@ -143,23 +143,21 @@ public class LevelState : MonoBehaviour
         GameObject[] terrain = GetTerrain(dim);
         foreach(var piece in terrain) {
             piece.GetComponent<Renderer>().enabled = true;
-            piece.GetComponent<BoxCollider2D>().enabled = true;
+            piece.GetComponent<Collider2D>().enabled = true;
         }
     }
 
     private void AddEnemies(Dimension dim) {
         GameObject[] enemies = GetEnemies(dim);
         foreach(var piece in enemies) {
-            piece.GetComponent<Renderer>().enabled = true;
-            piece.GetComponent<BoxCollider2D>().enabled = true;
+            piece.SetActive(true);
         }
     }
 
     private void RemoveEnemies(Dimension dim) {
         GameObject[] enemies = GetEnemies(dim);
         foreach(var piece in enemies) {
-            piece.GetComponent<Renderer>().enabled = false;
-            piece.GetComponent<BoxCollider2D>().enabled = false;
+            piece.SetActive(false);
         }
     }
 
@@ -168,7 +166,7 @@ public class LevelState : MonoBehaviour
         RemoveTerrain(this.dimension);
         RemoveEnemies(this.dimension);
         AddTerrain(this.startDimension);
-        AddEnemies(this.dimension);
+        AddEnemies(this.startDimension);
         this.dimension = this.startDimension;
     }
 
