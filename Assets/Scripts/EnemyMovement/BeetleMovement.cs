@@ -2,23 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeeterMovement : MonoBehaviour
+public class BeetleMovement : MonoBehaviour
 {
     public float speed;
     public float maxSpeed;
     public float decel;
     public GameObject target;
     public float yOffset;
-    public GameObject bomb;
-    public float bombLifetime;
-    public float timeBetweenBombs;
-    public Animator animator;
 
     // Start is called before the first frame update
-    void Start() {
-        StartCoroutine(DropBomb());
-        print("Started");
-    }
     void FixedUpdate()
     {
 
@@ -29,6 +21,7 @@ public class SkeeterMovement : MonoBehaviour
 
         Vector2 targetVector = (targetPosition - gameObject.GetComponent<Rigidbody2D>().position);
         Vector2 deltaVel = speed * targetVector;
+        deltaVel.y = 0;
 
         // Go toward target
         // gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(deltaVel * Time.deltaTime, maxSpeed);
@@ -46,20 +39,6 @@ public class SkeeterMovement : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         } else {
             transform.localScale = new Vector3(-1, 1, 1);
-        }
-    }
-
-    IEnumerator DropBomb() {
-        while (true) {
-            yield return new WaitForSeconds(timeBetweenBombs);
-
-            animator.SetBool("IsBombing", true);
-
-            yield return new WaitForSeconds(timeBetweenBombs/3);
-
-            animator.SetBool("IsBombing", false);
-            GameObject newBomb = Instantiate(bomb, transform.position, transform.rotation);
-            Destroy(newBomb, bombLifetime);
         }
     }
 }
