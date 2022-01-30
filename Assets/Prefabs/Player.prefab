@@ -339,9 +339,9 @@ MonoBehaviour:
   redPrimary: {fileID: 7433436952798516890}
   redSecondary: {fileID: 3867884919283569345}
   greenPrimary: {fileID: 7433436952798516890}
-  greenSecondary: {fileID: 6966470418540513808}
+  greenSecondary: {fileID: 3479517146217369699}
   bluePrimary: {fileID: 7433436952798516890}
-  blueSecondary: {fileID: 3479517146217369699}
+  blueSecondary: {fileID: 6966470418540513808}
 --- !u!231 &1962312412968171856
 SpringJoint2D:
   m_ObjectHideFlags: 0

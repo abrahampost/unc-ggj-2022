@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MovementController : MonoBehaviour
 {
-    public LevelState levelState;
+    private LevelState levelState;
     public float maxHorizSpeed;
     public float horizAccel;
     public float horizDecel;
@@ -36,6 +36,7 @@ public class MovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelState = GameObject.Find("Game").GetComponent<LevelState>();
         _rigidbody = GetComponent<Rigidbody2D>();
         soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
     }
@@ -134,13 +135,18 @@ public class MovementController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bullet")) {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
             GetComponent<DamageController>().takeDamage(other.gameObject.GetComponent<DamageController>().damage);
             StartCoroutine(other.gameObject.GetComponent<LaserMovement>().SetHit());
-        } else if(other.gameObject.CompareTag("Finish")) {
+        }
+        else if (other.gameObject.CompareTag("Finish"))
+        {
             var levelToGoTo = other.gameObject.GetComponent<NextScene>().nextScene;
             SceneManager.LoadScene(levelToGoTo);
-        } else if (other.gameObject.CompareTag("DeathZone")) {
+        }
+        else if (other.gameObject.CompareTag("DeathZone"))
+        {
             var spawnPoint = GameObject.FindWithTag("Respawn");
             spawnPoint.GetComponent<MovePlayerToSpawn>().ReturnToStart();
         }
