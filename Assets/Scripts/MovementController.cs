@@ -50,13 +50,13 @@ public class MovementController : MonoBehaviour
         Vector2 vel = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
         if (horizAxis > 0)
         {
-            if (!onGround)
+            if (onGround && !Input.GetMouseButton(1))
             {
-                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
             }
             else
             {
-                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
             }
             GetComponent<SpriteRenderer>().flipX = false;
         }
