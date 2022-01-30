@@ -9,9 +9,23 @@ public class WeaponController : MonoBehaviour
     public Ability greenSecondary;
     public Ability bluePrimary;
     public Ability blueSecondary;
+    private Dimension currentDimension;
 
-    private void Start() {
+    private void Start()
+    {
         levelState = GameObject.Find("Game").GetComponent<LevelState>();
+        if (levelState.dimension == Dimension.RED)
+        {
+            currentDimension = Dimension.RED;
+        }
+        else if (levelState.dimension == Dimension.GREEN)
+        {
+            currentDimension = Dimension.GREEN;
+        }
+        else if (levelState.dimension == Dimension.BLUE)
+        {
+            currentDimension = Dimension.BLUE;
+        }
     }
 
     void Update()
@@ -25,7 +39,8 @@ public class WeaponController : MonoBehaviour
             else if (levelState.dimension == Dimension.GREEN)
             {
                 if (greenPrimary) greenPrimary.use();
-            } else if (levelState.dimension == Dimension.BLUE)
+            }
+            else if (levelState.dimension == Dimension.BLUE)
             {
                 if (bluePrimary) bluePrimary.use();
             }
@@ -38,20 +53,33 @@ public class WeaponController : MonoBehaviour
         }
         if (Input.GetMouseButton(1))
         {
-            if (levelState.dimension == Dimension.RED)
+            if (currentDimension == Dimension.RED)
             {
                 if (redPrimary) redSecondary.use();
             }
-            else if (levelState.dimension == Dimension.GREEN)
+            else if (currentDimension == Dimension.GREEN)
             {
                 if (greenSecondary) greenSecondary.use();
-            } else if (levelState.dimension == Dimension.BLUE)
+            }
+            else if (currentDimension == Dimension.BLUE)
             {
                 if (blueSecondary) blueSecondary.use();
             }
         }
         else
         {
+            if (levelState.dimension == Dimension.RED)
+            {
+                currentDimension = Dimension.RED;
+            }
+            else if (levelState.dimension == Dimension.GREEN)
+            {
+                currentDimension = Dimension.GREEN;
+            }
+            else if (levelState.dimension == Dimension.BLUE)
+            {
+                currentDimension = Dimension.BLUE;
+            }
             if (redPrimary) redSecondary.notUsing();
             if (greenSecondary) greenSecondary.notUsing();
             if (blueSecondary) blueSecondary.notUsing();
