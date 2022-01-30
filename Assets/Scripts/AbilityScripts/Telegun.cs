@@ -30,9 +30,15 @@ public class Telegun : Ability
             var mousePosition = Camera.main.ScreenToWorldPoint(mousePos);
             var normalizedDirection = new Vector2(mousePosition.x - playerObject.transform.position.x, mousePosition.y - playerObject.transform.position.y).normalized;
             currentBullet = Instantiate(bullet, new Vector2(playerObject.transform.position.x, playerObject.transform.position.y) + (normalizedDirection * startingDistance), transform.rotation);
+            currentBullet.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(normalizedDirection.y, normalizedDirection.x) * Mathf.Rad2Deg, Vector3.forward);
             currentBullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletSpeed;
             inUse = true;
             soundManager.ShootingTelegun();
+        }
+        if (inUse)
+        {
+            var currentVelocity = currentBullet.GetComponent<Rigidbody2D>().velocity.normalized;
+            currentBullet.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(currentVelocity.y, currentVelocity.x) * Mathf.Rad2Deg, Vector3.forward);
         }
     }
 

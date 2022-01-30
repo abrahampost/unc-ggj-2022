@@ -32,6 +32,10 @@ public class Jetpack : Ability
             player.velocity = new Vector2(player.velocity.x, Mathf.Min(player.velocity.y + Time.deltaTime * (acceleration*100f), maxSpeed));
             currentFuel -= Time.deltaTime;
         }
+        else
+        {
+            soundManager.JetpackStop();
+        }
     }
 
     public override void notUsing()

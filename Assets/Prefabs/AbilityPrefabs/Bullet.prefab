@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6078000052071288270}
   - component: {fileID: 3227452876806183610}
   - component: {fileID: -5814122921596769249}
+  - component: {fileID: 7462732440073609390}
+  - component: {fileID: 5978041579389915248}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -136,3 +138,35 @@ CapsuleCollider2D:
   m_Offset: {x: -0.013095429, y: 0.0894831}
   m_Size: {x: 0.99954545, y: 0.19436777}
   m_Direction: 1
+--- !u!95 &7462732440073609390
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078000052071288269}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b3a9d897f0de894aa9e09decef503b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5978041579389915248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078000052071288269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60857b72f715aa47a78e30de595ff7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7462732440073609390}
