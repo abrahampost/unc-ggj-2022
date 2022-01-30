@@ -13,12 +13,20 @@ public class LevelState : MonoBehaviour
     public bool redEnabled;
     public bool greenEnabled;
     public bool blueEnabled;
-    public Dimension dimension = Dimension.RED;
+    public Dimension startDimension = Dimension.RED;
+    public Dimension curDimension = Dimension.RED;
     private SoundManager soundManager;
 
+    private GameObject[] dimension0Objects;
+    private GameObject[] dimension1Objects;
+    private GameObject[] dimension2Objects;
+
     private void Start() {
+        dimension0Objects = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(Dimension.RED));
+        dimension1Objects = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(Dimension.GREEN));
+        dimension2Objects = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(Dimension.BLUE));
         foreach(Dimension dim in Enum.GetValues(typeof(Dimension))) {
-            if (dim != this.dimension) {
+            if (dim != this.curDimension) {
                 RemoveTerrain(dim);
             }
         }
@@ -28,9 +36,9 @@ public class LevelState : MonoBehaviour
     public void ChangeDimension() 
     {
         Dimension nextDimension = this.GetNextDimension();
-        this.RemoveTerrain(this.dimension);
+        this.RemoveTerrain(this.curDimension);
         this.AddTerrain(nextDimension);
-        this.dimension = nextDimension;
+        this.curDimension = nextDimension;
         soundManager.ChangeDimension();
     }
     public string GetTerrainTag(Dimension dim)
@@ -52,10 +60,10 @@ public class LevelState : MonoBehaviour
     }
 
     private Dimension GetNextDimension() {
-        if (dimension == Dimension.RED) {
+        if (this.curDimension == Dimension.RED) {
             if (this.greenEnabled) return Dimension.GREEN;
             return Dimension.BLUE;
-        } else if (dimension == Dimension.GREEN) {
+        } else if (this.curDimension == Dimension.GREEN) {
             if (this.blueEnabled) return Dimension.BLUE;
             return Dimension.RED;
         } else {
@@ -66,7 +74,7 @@ public class LevelState : MonoBehaviour
 
     private void RemoveTerrain(Dimension dim)
     {
-        GameObject[] terrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(dim));
+        GameObject[] terrain = this.curDimension == Dimension.RED ? dimension0Objects : this.curDimension == Dimension.GREEN ? dimension1Objects : dimension2Objects;
         foreach(var piece in terrain) {
             piece.GetComponent<Renderer>().enabled = false;
             piece.GetComponent<BoxCollider2D>().enabled = false;
@@ -75,7 +83,7 @@ public class LevelState : MonoBehaviour
 
     private void AddTerrain(Dimension dim)
     {
-        GameObject[] terrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(dim));
+        GameObject[] terrain = this.curDimension == Dimension.RED ? dimension0Objects : this.curDimension == Dimension.GREEN ? dimension1Objects : dimension2Objects;
         foreach(var piece in terrain) {
             piece.GetComponent<Renderer>().enabled = true;
             piece.GetComponent<BoxCollider2D>().enabled = true;
@@ -83,6 +91,12 @@ public class LevelState : MonoBehaviour
 
     }
 
+    public void ResetTerrain() {
+        if (curDimension == startDimension) return;
+        RemoveTerrain(this.curDimension);
+        AddTerrain(this.startDimension);
+        this.curDimension = this.startDimension;
+    }
 
 
 }
