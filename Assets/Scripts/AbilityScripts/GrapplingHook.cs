@@ -79,8 +79,9 @@ public class GrapplingHook : Ability
 
         Vector2 bulletFinalSpot = bullet.transform.position;
         Vector2 diff = bulletFinalSpot - new Vector2(transform.parent.position.x, transform.parent.position.y);
+        transform.parent.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         joint.connectedBody = contact.collider.GetComponent<Rigidbody2D>();
-        joint.distance = diff.magnitude * .8f;
+        joint.distance = diff.magnitude;
 
         currentBullet.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg, Vector3.forward);
         currentBullet.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
