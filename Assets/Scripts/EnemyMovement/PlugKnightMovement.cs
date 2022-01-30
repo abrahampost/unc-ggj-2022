@@ -29,9 +29,13 @@ public class PlugKnightMovement : EnemyMovement
         Vector2 targetPosition = target.GetComponent<Rigidbody2D>().position;
         targetPosition.y += yOffset;
 
-        Vector2 targetVector = targetPosition - gameObject.GetComponent<Rigidbody2D>().position;
+        targetVector = targetPosition - gameObject.GetComponent<Rigidbody2D>().position;
         Vector2 deltaVel = speed * targetVector;
         deltaVel.y = 0;
+
+        if (!InRange()) {
+            return;
+        }
 
         // Go toward target
         // gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(deltaVel * Time.deltaTime, maxSpeed);

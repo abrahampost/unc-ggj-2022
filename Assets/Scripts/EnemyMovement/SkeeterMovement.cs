@@ -15,18 +15,18 @@ public class SkeeterMovement : EnemyMovement
     }
     void FixedUpdate()
     {
-        if (IsStunned()) {
-            animator.SetBool("IsBombing", false);
-            return;
-        }
-
         // Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Get Target position
         Vector2 targetPosition = target.GetComponent<Rigidbody2D>().position;
         targetPosition.y += yOffset;
 
-        Vector2 targetVector = (targetPosition - gameObject.GetComponent<Rigidbody2D>().position);
+        targetVector = (targetPosition - gameObject.GetComponent<Rigidbody2D>().position);
         Vector2 deltaVel = speed * targetVector;
+
+        if (IsStunned() || !InRange()) {
+            animator.SetBool("IsBombing", false);
+            return;
+        }
 
         // Go toward target
         // gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(deltaVel * Time.deltaTime, maxSpeed);
@@ -55,7 +55,7 @@ public class SkeeterMovement : EnemyMovement
 
             yield return new WaitForSeconds(timeBetweenBombs/3);
 
-            if (!IsStunned()) {
+            if (!IsStunned() && InRange()) {
                 animator.SetBool("IsBombing", false);
                 var gunSpawn = GameObject.Find("BombSpawn").transform;
                 GameObject newBomb = Instantiate(bomb, gunSpawn.position, gunSpawn.rotation);

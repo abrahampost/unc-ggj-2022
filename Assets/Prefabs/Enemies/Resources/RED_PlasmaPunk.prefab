@@ -293,6 +293,7 @@ MonoBehaviour:
   xOffset: 5
   targetVector: {x: 0, y: 0}
   stunTime: 1
+  range: 10
   bullet: {fileID: 4154959617138558430, guid: f955e3da566051141930d12c89aeb844, type: 3}
   bulletSpeed: 10
   timeAlive: 5
