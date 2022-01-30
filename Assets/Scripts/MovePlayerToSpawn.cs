@@ -11,10 +11,10 @@ public class MovePlayerToSpawn : MonoBehaviour
     }
 
     public void ReturnToStart() {
-        var levelState = GameObject.Find("Game");
-        levelState.GetComponent<LevelState>().ResetTerrain();
-        GameObject.Find("Player").transform.position = transform.position + Vector3.up * .2f;
-        GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        // var levelState = GameObject.Find("Game");
+        // levelState.GetComponent<LevelState>().ResetTerrain();
+        // GameObject.Find("Player").transform.position = transform.position + Vector3.up * .2f;
+        // GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
         // Reset Enemies and effects
         List<GameObject> enemies = new List<GameObject>();
@@ -34,5 +34,11 @@ public class MovePlayerToSpawn : MonoBehaviour
         foreach (GameObject effect in effects) {
             Destroy(effect);
         }
+        var player = GameObject.Find("Player");
+        player.transform.position = transform.position + Vector3.up * .2f;
+        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        var levelState = GameObject.Find("Game").GetComponent<LevelState>();
+        levelState.ResetTerrain();
     }
 }
