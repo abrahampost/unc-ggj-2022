@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   damage: 1
-  cooldown: 0.5
+  cooldown: 1
   hearts:
   - {fileID: 0}
   - {fileID: 0}
