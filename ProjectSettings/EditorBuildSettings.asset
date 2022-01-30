@@ -17,12 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 51245c51d733b3e459dcbf39e10266e5
-  - enabled: 0
-    path: Assets/Scenes/Dev/Goal Test.unity
-    guid: 9df86582a4819ad4cb36a7cd5b61cfa7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level02.unity
+    guid: e9c09b3eb8e8da24a996fb6d74961a04
   - enabled: 1
     path: Assets/Scenes/Levels/Level01.unity
-    guid: e9c09b3eb8e8da24a996fb6d74961a04
-    path: Assets/Scenes/Dev/Cinematic Test.unity
-    guid: 597db78bcecbf67469b99f1fab5aaa84
+    guid: 2a844c3bb014adc4ebbd9e21e6b61d53
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level03.unity
+    guid: 823367ae73f14404a922c78bc7f0b539
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level04.unity
+    guid: 47e6cd58ae14dec479d8b6fe793ab6d5
   m_configObjects: {}
