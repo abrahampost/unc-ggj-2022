@@ -206,7 +206,7 @@ public class MovementController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         // levelToGoTo = NextScene.level;
-        var levelToGoTo = other.gameObject.GetComponent<NextScene>().level;
+        var levelToGoTo = other.gameObject.GetComponent<NextScene>().nextScene;
         SceneManager.LoadScene(levelToGoTo);
     }
 }
