@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 2102146503479206357}
   - component: {fileID: 2102146503479206358}
   - component: {fileID: 2102146503479206356}
+  - component: {fileID: 1106432074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -231,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7295380900b127f43b82d3559a015352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpAudio: {fileID: 3063515158266156380, guid: 2d62126a5edbcfb489af8f365466be58, type: 3}
   levelState: {fileID: 0}
   maxHorizSpeed: 6
   horizAccel: 1000
@@ -263,6 +263,20 @@ MonoBehaviour:
   greenSecondary: {fileID: 6966470418540513808}
   bluePrimary: {fileID: 7433436952798516890}
   blueSecondary: {fileID: 0}
+--- !u!114 &1106432074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102146503479206363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c654985e662a743a72667c23950727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  damage: 1
 --- !u!1 &3086148713101844609
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +288,7 @@ GameObject:
   - component: {fileID: 8469706524295045459}
   - component: {fileID: 1669272172723960510}
   - component: {fileID: 5621105063644622188}
+  - component: {fileID: 1917996283}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -346,6 +361,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3086148713101844609}
   m_Enabled: 1
+--- !u!114 &1917996283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3086148713101844609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c654985e662a743a72667c23950727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  damage: 1
 --- !u!1001 &3587064758303378550
 PrefabInstance:
   m_ObjectHideFlags: 0
