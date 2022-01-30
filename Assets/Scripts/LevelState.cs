@@ -21,12 +21,18 @@ public class LevelState : MonoBehaviour
     GameObject[] greenTerrain;
     GameObject[] blueTerrain;
 
+    GameObject[] redEnemy;
+    GameObject[] greenEnemy;
+    GameObject[] blueEnemy;
+
     private void Start() {
         this.startDimension = this.dimension;
         LoadTerrain();
+        LoadEnemies();
         foreach(Dimension dim in Enum.GetValues(typeof(Dimension))) {
             if (dim != this.dimension) {
                 RemoveTerrain(dim);
+                RemoveEnemies(dim);
             }
         }
         soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
@@ -38,11 +44,19 @@ public class LevelState : MonoBehaviour
         this.blueTerrain = GameObject.FindGameObjectsWithTag(this.GetTerrainTag(Dimension.BLUE));
     }
 
+    private void LoadEnemies() {
+        this.redEnemy = GameObject.FindGameObjectsWithTag(this.GetEnemyTag(Dimension.RED));
+        this.greenEnemy = GameObject.FindGameObjectsWithTag(this.GetEnemyTag(Dimension.GREEN));
+        this.blueEnemy = GameObject.FindGameObjectsWithTag(this.GetEnemyTag(Dimension.BLUE));
+    }
+
     public void ChangeDimension() 
     {
         Dimension nextDimension = this.GetNextDimension();
         this.RemoveTerrain(this.dimension);
+        this.RemoveEnemies(this.dimension);
         this.AddTerrain(nextDimension);
+        this.AddEnemies(this.dimension);
         this.dimension = nextDimension;
         soundManager.ChangeDimension();
     }
@@ -60,6 +74,24 @@ public class LevelState : MonoBehaviour
         else
         {
             currentDimensionString = "Dimension2Terrain";
+        }
+        return currentDimensionString;
+    }
+
+    public string GetEnemyTag(Dimension dim)
+    {
+        string currentDimensionString;
+        if (dim == Dimension.RED)
+        {
+            currentDimensionString = "Dimension0Enemy";
+        }
+        else if (dim == Dimension.GREEN)
+        {
+            currentDimensionString = "Dimension1Enemy";
+        }
+        else
+        {
+            currentDimensionString = "Dimension2Enemy";
         }
         return currentDimensionString;
     }
@@ -87,6 +119,16 @@ public class LevelState : MonoBehaviour
         }
     }
 
+    private GameObject[] GetEnemies(Dimension dim) {
+        if (dim == Dimension.RED) {
+            return this.redEnemy;
+        } else if (dim == Dimension.GREEN) {
+            return this.greenEnemy;
+        } else {
+            return this.blueEnemy;
+        }
+    }
+
     private void RemoveTerrain(Dimension dim)
     {
         GameObject[] terrain = GetTerrain(dim);
@@ -103,13 +145,30 @@ public class LevelState : MonoBehaviour
             piece.GetComponent<Renderer>().enabled = true;
             piece.GetComponent<BoxCollider2D>().enabled = true;
         }
+    }
 
+    private void AddEnemies(Dimension dim) {
+        GameObject[] enemies = GetEnemies(dim);
+        foreach(var piece in enemies) {
+            piece.GetComponent<Renderer>().enabled = true;
+            piece.GetComponent<BoxCollider2D>().enabled = true;
+        }
+    }
+
+    private void RemoveEnemies(Dimension dim) {
+        GameObject[] enemies = GetEnemies(dim);
+        foreach(var piece in enemies) {
+            piece.GetComponent<Renderer>().enabled = false;
+            piece.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 
     public void ResetTerrain() {
         if (this.dimension == this.startDimension) return;
         RemoveTerrain(this.dimension);
+        RemoveEnemies(this.dimension);
         AddTerrain(this.startDimension);
+        AddEnemies(this.dimension);
         this.dimension = this.startDimension;
     }
 
