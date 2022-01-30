@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5175385830685486793}
   - component: {fileID: 3063515158266156380}
   m_Layer: 0
-  m_Name: TeleportTelegun
+  m_Name: ChangeDimensions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4cc84146a19f23143b44a98ddc6c604e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3ac3b88c2a556fb4498a425cb504046b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

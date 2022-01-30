@@ -14,6 +14,7 @@ public class LevelState : MonoBehaviour
     public bool greenEnabled;
     public bool blueEnabled;
     public Dimension dimension = Dimension.RED;
+    private SoundManager soundManager;
 
     private void Start() {
         foreach(Dimension dim in Enum.GetValues(typeof(Dimension))) {
@@ -21,6 +22,7 @@ public class LevelState : MonoBehaviour
                 RemoveTerrain(dim);
             }
         }
+        soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
     }
 
     public void ChangeDimension() 
@@ -29,6 +31,7 @@ public class LevelState : MonoBehaviour
         this.RemoveTerrain(this.dimension);
         this.AddTerrain(nextDimension);
         this.dimension = nextDimension;
+        soundManager.ChangeDimension();
     }
     public string GetTerrainTag(Dimension dim)
     {

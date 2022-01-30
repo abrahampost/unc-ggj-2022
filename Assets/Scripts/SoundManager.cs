@@ -48,4 +48,10 @@ public class SoundManager : MonoBehaviour
     {
         jetpackAudio.Stop();
     }
+
+    public AudioSource changeDimensionAudio;
+    public void ChangeDimension()
+    {
+        changeDimensionAudio.Play();
+    }
 }
