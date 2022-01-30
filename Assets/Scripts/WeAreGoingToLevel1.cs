@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class WeAreGoingToLevel1 : MonoBehaviour
 {
     void OnEnable() {
-        SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
     }
 }
