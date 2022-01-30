@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour
     public float maxHorizSpeed;
     public float horizAccel;
     public float horizDecel;
+    public float inAirAccel;
     public float jumpAccel;
     public float gravity;
 
@@ -49,12 +50,26 @@ public class MovementController : MonoBehaviour
         Vector2 vel = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
         if (horizAxis > 0)
         {
-            vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            if (!onGround)
+            {
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            }
+            else
+            {
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            }
             GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (horizAxis < 0)
         {
-            vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            if (!onGround)
+            {
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Mathf.Min(inAirAccel, 1) * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            }
+            else
+            {
+                vel.x = Mathf.Clamp(vel.x + (horizAxis * horizAccel * Time.deltaTime), -maxHorizSpeed, maxHorizSpeed);
+            }
             GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (onGround)
