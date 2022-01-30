@@ -27,6 +27,10 @@ public class EnemyMovement : MonoBehaviour
         
     }
 
+    public GameObject getTarget() {
+        return target;
+    }
+
     void FixedUpdate()
     {
         // Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

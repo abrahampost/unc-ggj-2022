@@ -8,12 +8,15 @@ public class PlasmaPunkMovement : EnemyMovement
     public float bulletSpeed;
     public float timeAlive;
     public float startingDistance;
+    // public Vector2 offset;
     public float cooldown;
     private bool onCooldown = false;
     private SoundManager soundManager;
+    // private Vector2 gunSpawn;
 
     void Start() {
         getTargets();
+        // gunSpawn = GameObject.Find("GunEnd").transform.position;
         soundManager = GameObject.Find("Sounds").GetComponent<SoundManager>();
     }
 
@@ -27,10 +30,14 @@ public class PlasmaPunkMovement : EnemyMovement
 
             // GameObject playerObject = GameObject.Find("Player");
             // Vector2 targetPosition = GetComponent<EnemyMovement>().target.transform.position;
-            var normalizedDirection = GetComponent<EnemyMovement>().targetVector.normalized;
-            GameObject newBullet = Instantiate(bullet, new Vector2(transform.position.x, transform.position.y) + (normalizedDirection * startingDistance), Quaternion.AngleAxis(Mathf.Atan2(normalizedDirection.y, normalizedDirection.x) * Mathf.Rad2Deg, Vector3.forward));
+            Vector2 gunSpawn = GameObject.Find("GunEnd").transform.position;
+            Vector2 targetPosition = GetComponent<EnemyMovement>().getTarget().transform.position;
+            Vector2 normalizedDirection = (targetPosition - gunSpawn).normalized;
+            // var normalizedDirection = (GetComponent<EnemyMovement>().targetVector - gunSpawn).normalized;
+            GameObject newBullet = Instantiate(bullet, gunSpawn + (normalizedDirection * startingDistance), Quaternion.AngleAxis(Mathf.Atan2(normalizedDirection.y, normalizedDirection.x) * Mathf.Rad2Deg, Vector3.forward));
             newBullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletSpeed;
-            Destroy(newBullet, timeAlive);
+            StartCoroutine(newBullet.GetComponent<LaserMovement>().setTimeAlive(timeAlive));
+            // Destroy(newBullet, timeAlive);
 
             soundManager.ShootGun();
 
