@@ -112,7 +112,6 @@ public class GrapplingHook : Ability
             holdingDown = false;
             joint.enabled = false;
 
-            Destroy(bullet);
             Destroy(currentBullet);
             currentBullet = null;
         }
