@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     public float xOffset;
     protected Vector2 offset;
     public Vector2 targetVector;
+    private bool stunned;
+    public float stunTime;
 
     void Start() {
         getTargets();
@@ -31,8 +33,15 @@ public class EnemyMovement : MonoBehaviour
         return target;
     }
 
+    protected bool IsStunned() {
+        return stunned;
+    }
+
     void FixedUpdate()
     {
+        if (stunned) {
+            return;
+        }
         // Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Get Target position
         Vector2 targetPosition = target.GetComponent<Rigidbody2D>().position;
@@ -76,6 +85,16 @@ public class EnemyMovement : MonoBehaviour
         if (collider.gameObject.CompareTag("Bullet")) {
             GetComponent<DamageController>().takeDamage(collider.gameObject.GetComponent<DamageController>().damage);
             StartCoroutine(collider.gameObject.GetComponent<LaserMovement>().SetHit());
+            StartCoroutine(Stun());
         }
+    }
+
+    protected IEnumerator Stun() {
+        stunned = true;
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        animator.SetFloat("Speed", Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x));
+
+        yield return new WaitForSeconds(stunTime);
+        stunned = false;
     }
 }

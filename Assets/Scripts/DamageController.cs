@@ -20,7 +20,7 @@ public class DamageController : MonoBehaviour
 
     public void takeDamage(int damageTaken) {
         this.health -= damageTaken;
-        print(this.health);
+        // print(this.health);
     }
 
     void dealDamage(DamageController target, int damage) {

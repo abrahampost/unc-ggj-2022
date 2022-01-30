@@ -19,6 +19,10 @@ public class PlugKnightMovement : EnemyMovement
 
     void FixedUpdate()
     {
+        if (IsStunned()) {
+            animator.SetInteger("State", ((int)State.WALKING));
+            return;
+        }
 
         // Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Get Target position
@@ -62,7 +66,8 @@ public class PlugKnightMovement : EnemyMovement
         
         // Pause between attacks
         if (animator.GetInteger("State") == ((int)State.PAUSING)) {
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            var y = gameObject.GetComponent<Rigidbody2D>().velocity.y;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, y);
         }
 
         // Flip sprite
@@ -101,7 +106,8 @@ public class PlugKnightMovement : EnemyMovement
                 yield return new WaitForSeconds(pauseTime);
                 animator.SetInteger("State", ((int)State.WALKING));
             }
-
         }
     }
+
+
 }

@@ -251,6 +251,8 @@ MonoBehaviour:
   animator: {fileID: 1152482940}
   yOffset: 0
   xOffset: 0
+  targetVector: {x: 0, y: 0}
+  stunTime: 1
 --- !u!114 &8307212151890655645
 MonoBehaviour:
   m_ObjectHideFlags: 0

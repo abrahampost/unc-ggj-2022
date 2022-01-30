@@ -22,7 +22,7 @@ public class PlasmaPunkMovement : EnemyMovement
 
     void Update()
     { 
-        if (!onCooldown)
+        if (!onCooldown && !IsStunned())
         {
             // Vector3 mousePos = Input.mousePosition;
             // mousePos.z = Camera.main.nearClipPlane;
