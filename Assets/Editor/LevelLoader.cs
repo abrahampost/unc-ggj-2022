@@ -54,6 +54,7 @@ public class LevelLoader : EditorWindow
             } else if (prefabName.Equals("goal")) {
                 var goal = GameObject.FindGameObjectWithTag("Finish");
                 goal.transform.position = new Vector2(lo.x, lo.y);
+                goal.tag = ("Dimension" + dimensionNumber + "Terrain");
                 continue;
             }
             cachedPrefabs.TryGetValue(prefabName, out GameObject prefab);
