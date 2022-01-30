@@ -7,7 +7,7 @@ public class PlugKnightMovement : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float decel;
-    public GameObject target;
+    private GameObject target;
     public float yOffset;
     public Animator animator;
     public float readyTime;
