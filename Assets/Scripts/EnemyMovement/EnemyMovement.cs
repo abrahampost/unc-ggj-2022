@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
     protected void getTargets() {
         startPos = transform.position;
+        print(startPos);
         target = GameObject.Find("Player");
         offset = new Vector2(xOffset, yOffset);
     }
