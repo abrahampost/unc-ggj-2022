@@ -148,7 +148,7 @@ MonoBehaviour:
   xOffset: 0
   bomb: {fileID: 6078000052071288269, guid: 6c4634c4892c4b14e97530e8e956feb4, type: 3}
   bombLifetime: 1
-  timeBetweenBombs: 5
+  timeBetweenBombs: 3
 --- !u!60 &943412150
 PolygonCollider2D:
   m_ObjectHideFlags: 0
