@@ -33,30 +33,38 @@ public class LevelLoader : EditorWindow
             LevelData level = JsonUtility.FromJson<LevelData>(textContent);
             if (level != null) {
                 Debug.Log("Successfully read level");
-                LoadDimension(level.red, "Red");
-                LoadDimension(level.green, "Green");
-                LoadDimension(level.blue, "Blue");
+                LoadDimension(level.red, "Red", 0);
+                LoadDimension(level.green, "Green", 1);
+                LoadDimension(level.blue, "Blue", 2);
             } else {
                 Debug.LogError("Unsuccessfully read level");
             }
         }
     }
 
-    static void LoadDimension(LevelObject[] dimension, string dimensionName) {
+    static void LoadDimension(LevelObject[] dimension, string dimensionName, int dimensionNumber) {
         var scene = EditorSceneManager.GetActiveScene();
         Dictionary<string, GameObject> cachedPrefabs = new Dictionary<string, GameObject>();
         foreach(LevelObject lo in dimension) {
             var prefabName = lo.sprite;
+            if (prefabName.Equals("spawn")) {
+                var spawnPoint = GameObject.FindGameObjectWithTag("Respawn");
+                spawnPoint.transform.position = new Vector2(lo.x, lo.y);
+                continue;
+            } else if (prefabName.Equals("goal")) {
+                var goal = GameObject.FindGameObjectWithTag("Finish");
+                goal.transform.position = new Vector2(lo.x, lo.y);
+                continue;
+            }
             cachedPrefabs.TryGetValue(prefabName, out GameObject prefab);
             if (prefab == null) {
-                prefab = Resources.Load<GameObject>("Prefabs/" + prefabName);
+                prefab = Resources.Load<GameObject>(prefabName);
                 if (prefab == null) {
                     throw new System.Exception("No prefab found with name " + prefabName);
                 }
                 cachedPrefabs.Add(prefabName, prefab);
             }
             var item = Instantiate(prefab, new Vector3(lo.x, lo.y, 0), Quaternion.identity);
-            item.tag = "Dimension" + dimensionName + "Terrain";
         }
 
         EditorSceneManager.SaveScene(scene);
