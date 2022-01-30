@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: cce239e4289dec14da538b06a84b2212
+guid: 08d99e78a0872d8499c9375963e65289
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5663018041848407273
-    second: plug-knight_0
+      213: 8975533847832637318
+    second: plasma-explosion_0
   - first:
-      213: 9115829750771936297
-    second: plug-knight_1
+      213: 3929756382927627778
+    second: plasma-explosion_1
   - first:
-      213: 3191321527782749089
-    second: plug-knight_2
+      213: -5339573645083025292
+    second: plasma-explosion_2
   - first:
-      213: 8890461450374821799
-    second: plug-knight_3
+      213: 4380113650214371103
+    second: plasma-explosion_3
+  - first:
+      213: 8395449598786809495
+    second: plasma-explosion_4
+  - first:
+      213: 4485966066325338235
+    second: plasma-explosion_5
+  - first:
+      213: -4808053970508483282
+    second: plasma-explosion_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,85 +124,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plug-knight_0
+      name: plasma-explosion_0
       rect:
         serializedVersion: 2
         x: 0
         y: 256
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e4a005b7e4179e40800000000000000
-      internalID: 5663018041848407273
+      spriteID: 68f2f8dea708f8c70800000000000000
+      internalID: 8975533847832637318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plug-knight_1
+      name: plasma-explosion_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206a93a0c9c498630800000000000000
+      internalID: 3929756382927627778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasma-explosion_2
       rect:
         serializedVersion: 2
         x: 256
         y: 256
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92ce2bf4cdee18e70800000000000000
-      internalID: 9115829750771936297
+      spriteID: 470e9c06f0606e5b0800000000000000
+      internalID: -5339573645083025292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plug-knight_2
+      name: plasma-explosion_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ffdd4782a49cc30800000000000000
+      internalID: 4380113650214371103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasma-explosion_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e2269dde0a28470800000000000000
+      internalID: 8395449598786809495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasma-explosion_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7837c1ae5a514e30800000000000000
+      internalID: 4485966066325338235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plasma-explosion_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a33c8b650ad94c20800000000000000
-      internalID: 3191321527782749089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: plug-knight_3
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a735eed593416b70800000000000000
-      internalID: 8890461450374821799
+      spriteID: e257fe2536c564db0800000000000000
+      internalID: -4808053970508483282
       vertices: []
       indices: 
       edges: []

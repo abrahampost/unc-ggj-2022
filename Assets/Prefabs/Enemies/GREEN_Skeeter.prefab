@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 943412150}
   - component: {fileID: 943412155}
   - component: {fileID: 1372541929}
-  m_Layer: 0
-  m_Name: Skeeter
+  m_Layer: 3
+  m_Name: GREEN_Skeeter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,11 +143,12 @@ MonoBehaviour:
   speed: 5
   maxSpeed: 10
   decel: 1.05
+  animator: {fileID: 1385907918683676829}
   yOffset: 5
+  xOffset: 0
   bomb: {fileID: 6078000052071288269, guid: 6c4634c4892c4b14e97530e8e956feb4, type: 3}
   bombLifetime: 1
   timeBetweenBombs: 5
-  animator: {fileID: 1385907918683676829}
 --- !u!60 &943412150
 PolygonCollider2D:
   m_ObjectHideFlags: 0

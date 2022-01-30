@@ -70,7 +70,8 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.CompareTag("Bullet")) {
             GetComponent<DamageController>().takeDamage(collider.gameObject.GetComponent<DamageController>().damage);
-            collider.gameObject.SetActive(false);
+            StartCoroutine(collider.gameObject.GetComponent<LaserMovement>().SetHit());
+            print(collider.gameObject.GetComponent<LaserMovement>());
         }
     }
 }

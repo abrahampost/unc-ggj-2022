@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: cce239e4289dec14da538b06a84b2212
+guid: 2a37bf75424290d4c86117793110a0b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5663018041848407273
-    second: plug-knight_0
+      213: 7357697353291751067
+    second: plug-knight-run_0
   - first:
-      213: 9115829750771936297
-    second: plug-knight_1
+      213: -8824577178991456348
+    second: plug-knight-run_1
   - first:
-      213: 3191321527782749089
-    second: plug-knight_2
+      213: -138005261333653984
+    second: plug-knight-run_2
   - first:
-      213: 8890461450374821799
-    second: plug-knight_3
+      213: -8328988631950079142
+    second: plug-knight-run_3
+  - first:
+      213: -7975916500360641730
+    second: plug-knight-run_4
+  - first:
+      213: -571513231753794793
+    second: plug-knight-run_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +121,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plug-knight_0
+      name: plug-knight-run_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e59c392cacb1660800000000000000
+      internalID: 7357697353291751067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plug-knight-run_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af02317fcdc88580800000000000000
+      internalID: -8824577178991456348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plug-knight-run_2
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e4a005b7e4179e40800000000000000
-      internalID: 5663018041848407273
+      spriteID: 026921d22f4b51ef0800000000000000
+      internalID: -138005261333653984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plug-knight_1
+      name: plug-knight-run_3
       rect:
         serializedVersion: 2
         x: 256
@@ -150,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92ce2bf4cdee18e70800000000000000
-      internalID: 9115829750771936297
+      spriteID: a5b4956d7fc796c80800000000000000
+      internalID: -8328988631950079142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plug-knight_2
+      name: plug-knight-run_4
       rect:
         serializedVersion: 2
         x: 0
@@ -171,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a33c8b650ad94c20800000000000000
-      internalID: 3191321527782749089
+      spriteID: e33c3dd733adf4190800000000000000
+      internalID: -7975916500360641730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plug-knight_3
+      name: plug-knight-run_5
       rect:
         serializedVersion: 2
         x: 256
@@ -192,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a735eed593416b70800000000000000
-      internalID: 8890461450374821799
+      spriteID: 71b21e46eb39118f0800000000000000
+      internalID: -571513231753794793
       vertices: []
       indices: 
       edges: []

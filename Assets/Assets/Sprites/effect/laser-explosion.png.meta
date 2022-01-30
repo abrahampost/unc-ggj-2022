@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: cce239e4289dec14da538b06a84b2212
+guid: 7968b84c7e773a142b28049bd094bccf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5663018041848407273
-    second: plug-knight_0
+      213: -4518247495042584138
+    second: laser-explosion_0
   - first:
-      213: 9115829750771936297
-    second: plug-knight_1
+      213: -5624612024295663740
+    second: laser-explosion_1
   - first:
-      213: 3191321527782749089
-    second: plug-knight_2
+      213: 485874264365171348
+    second: laser-explosion_2
   - first:
-      213: 8890461450374821799
-    second: plug-knight_3
+      213: -3785051063293810884
+    second: laser-explosion_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,85 +115,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plug-knight_0
+      name: laser-explosion_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 256
-        height: 256
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e4a005b7e4179e40800000000000000
-      internalID: 5663018041848407273
+      spriteID: 6b130ba87d5fb41c0800000000000000
+      internalID: -4518247495042584138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plug-knight_1
+      name: laser-explosion_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
+        x: 128
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92ce2bf4cdee18e70800000000000000
-      internalID: 9115829750771936297
+      spriteID: 48757741a2d51f1b0800000000000000
+      internalID: -5624612024295663740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plug-knight_2
+      name: laser-explosion_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a33c8b650ad94c20800000000000000
-      internalID: 3191321527782749089
+      spriteID: 4928df4b11c2eb600800000000000000
+      internalID: 485874264365171348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plug-knight_3
+      name: laser-explosion_3
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a735eed593416b70800000000000000
-      internalID: 8890461450374821799
+      spriteID: c3768abac1cc87bc0800000000000000
+      internalID: -3785051063293810884
       vertices: []
       indices: 
       edges: []
