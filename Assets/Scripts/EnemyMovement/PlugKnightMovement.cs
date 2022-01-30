@@ -23,6 +23,9 @@ public class PlugKnightMovement : MonoBehaviour
         PAUSING = 3
     }
 
+    void Start() {
+        target = GameObject.Find("Player");
+    }
     void Update()
     {
         // GetComponent<Rigidbody2D>()
@@ -101,6 +104,7 @@ public class PlugKnightMovement : MonoBehaviour
 
     IEnumerator OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            yield return new WaitForSeconds(0.1f);
             animator.SetInteger("State", ((int)State.PAUSING));
             collided = true;
 

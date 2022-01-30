@@ -7,17 +7,17 @@ public class SkeeterMovement : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float decel;
-    public GameObject target;
     public float yOffset;
     public GameObject bomb;
     public float bombLifetime;
     public float timeBetweenBombs;
     public Animator animator;
+    private GameObject target;
 
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(DropBomb());
-        print("Started");
+        target = GameObject.Find("Player");
     }
     void FixedUpdate()
     {
