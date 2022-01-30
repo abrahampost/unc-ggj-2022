@@ -10,6 +10,7 @@ public class WeaponController : MonoBehaviour
     public Ability bluePrimary;
     public Ability blueSecondary;
     private Dimension currentDimension;
+    public string currentAbility = null;
 
     private void Start()
     {
@@ -56,14 +57,17 @@ public class WeaponController : MonoBehaviour
             if (currentDimension == Dimension.RED)
             {
                 if (redPrimary) redSecondary.use();
+                currentAbility = "Jetpack";
             }
             else if (currentDimension == Dimension.GREEN)
             {
                 if (greenSecondary) greenSecondary.use();
+                currentAbility = "Grapple";
             }
             else if (currentDimension == Dimension.BLUE)
             {
                 if (blueSecondary) blueSecondary.use();
+                currentAbility = "Telegun";
             }
         }
         else
@@ -83,6 +87,7 @@ public class WeaponController : MonoBehaviour
             if (redPrimary) redSecondary.notUsing();
             if (greenSecondary) greenSecondary.notUsing();
             if (blueSecondary) blueSecondary.notUsing();
+            currentAbility = null;
         }
     }
 }
