@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHorizSpeed: 6
   horizAccel: 1000
-  horizDecel: 1.05
+  horizDecel: 70
   inAirAccel: 0.06
   jumpAccel: 18
   gravity: 70
@@ -340,6 +340,7 @@ MonoBehaviour:
   greenSecondary: {fileID: 3479517146217369699}
   bluePrimary: {fileID: 7433436952798516890}
   blueSecondary: {fileID: 6966470418540513808}
+  currentAbility: 
 --- !u!231 &1962312412968171856
 SpringJoint2D:
   m_ObjectHideFlags: 0

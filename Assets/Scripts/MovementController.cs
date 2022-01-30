@@ -81,7 +81,7 @@ public class MovementController : MonoBehaviour
         }
         else if (onGround)
         {
-            if (Mathf.Abs(vel.x) > .03)
+            if (Mathf.Abs(vel.x) > .01)
             {
                 vel.x = vel.x - Mathf.Sign(vel.x) * horizDecel * Time.deltaTime;
             }
